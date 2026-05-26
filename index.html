@@ -1,314 +1,778 @@
-<!DOCTYPE html>
-<html lang="en">
+<parameter name="content"><!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rasool Hamidi Choolabi — Psychologist</title>
-  <style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ─── CSS Variables ─────────────────────────────────────────── */
+:root {
+--bg:          #f4f6fb;
+--bg2:         #eef1f8;
+--surface:     rgba(255,255,255,0.75);
+--surface2:    rgba(255,255,255,0.55);
+--border:      rgba(255,255,255,0.6);
+--text:        #1a1d2e;
+--text2:       #4a5068;
+--text3:       #7a82a0;
+--accent:      #5b6af0;
+--accent2:     #8b5cf6;
+--accent3:     #06b6d4;
+--card-shadow: 0 4px 24px rgba(91,106,240,0.10);
+--card-hover:  0 12px 40px rgba(91,106,240,0.18);
+--radius:      16px;
+--radius-sm:   10px;
+--transition:  0.3s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="dark"] {
+--bg:          #0f1117;
+--bg2:         #161922;
+--surface:     rgba(30,34,50,0.80);
+--surface2:    rgba(30,34,50,0.60);
+--border:      rgba(255,255,255,0.08);
+--text:        #e8eaf6;
+--text2:       #9fa3be;
+--text3:       #5c6080;
+--card-shadow: 0 4px 24px rgba(0,0,0,0.40);
+--card-hover:  0 12px 40px rgba(91,106,240,0.25);
+}
 
-    :root {
-      --accent: #2c6e8a;
-      --accent-light: #e8f4f8;
-      --text: #1a1a2e;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --bg: #f9fafb;
-    }
+/* ─── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Inter', sans-serif;
+background: var(--bg);
+color: var(--text);
+line-height: 1.6;
+transition: background var(--transition), color var(--transition);
+overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--accent2); }
+img { display: block; max-width: 100%; }
 
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+/* ─── Animated Gradient Background ─────────────────────────── */
+.hero-bg {
+position: fixed;
+inset: 0;
+z-index: -1;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #06b6d4 50%, #5b6af0 75%, #8b5cf6 100%);
+background-size: 400% 400%;
+animation: gradientShift 12s ease infinite;
+opacity: 0.12;
+}
+[data-theme="dark"] .hero-bg { opacity: 0.18; }
+@keyframes gradientShift {
+0%   { background-position: 0% 50%; }
+50%  { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+/* ─── Layout ────────────────────────────────────────────────── */
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-    /* ── Layout ── */
-    .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem; }
+/* ─── Theme Toggle ──────────────────────────────────────────── */
+.theme-toggle {
+position: fixed;
+top: 20px;
+right: 20px;
+z-index: 100;
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-radius: 50px;
+padding: 8px 16px;
+cursor: pointer;
+font-size: 18px;
+box-shadow: var(--card-shadow);
+transition: all var(--transition);
+display: flex;
+align-items: center;
+gap: 6px;
+color: var(--text);
+font-family: 'Inter', sans-serif;
+font-size: 13px;
+font-weight: 500;
+}
+.theme-toggle:hover { box-shadow: var(--card-hover); transform: translateY(-1px); }
+.theme-toggle .icon { font-size: 16px; }
 
-    /* ── Hero ── */
-    .hero { display: flex; gap: 2rem; align-items: center; background: white; border-radius: 16px; padding: 2rem; box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 1.5rem; }
-    .hero img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 3px solid var(--accent-light); }
-    .hero-name { font-size: 1.7rem; font-weight: 700; }
-    .hero-title { color: var(--accent); font-size: 1rem; margin-bottom: .5rem; }
-    .hero-meta { font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; }
-    .hero-meta span::before { margin-right: .3rem; }
+/* ─── Hero Section ──────────────────────────────────────────── */
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 80px 20px 60px;
+position: relative;
+}
+.hero-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-radius: 28px;
+padding: 56px 48px;
+max-width: 700px;
+width: 100%;
+box-shadow: var(--card-shadow);
+text-align: center;
+animation: fadeUp 0.8s ease both;
+}
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to   { opacity: 1; transform: translateY(0); }
+}
 
-    /* ── Sections ── */
-    .card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); margin-bottom: 1.5rem; }
-    .section-title { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); border-bottom: 2px solid var(--accent-light); padding-bottom: .4rem; margin-bottom: 1rem; }
+/* Avatar */
+.avatar-wrap {
+position: relative;
+display: inline-block;
+margin-bottom: 28px;
+}
+.avatar-ring {
+position: absolute;
+inset: -6px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
+animation: spin 6s linear infinite;
+z-index: 0;
+}
+.avatar-ring::after {
+content: '';
+position: absolute;
+inset: 3px;
+border-radius: 50%;
+background: var(--bg);
+}
+@keyframes spin {
+from { transform: rotate(0deg); }
+to   { transform: rotate(360deg); }
+}
+.avatar-img {
+width: 130px;
+height: 130px;
+border-radius: 50%;
+object-fit: cover;
+position: relative;
+z-index: 1;
+border: 3px solid var(--bg);
+}
+.avatar-placeholder {
+width: 130px;
+height: 130px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 48px;
+font-weight: 700;
+color: #fff;
+position: relative;
+z-index: 1;
+border: 3px solid var(--bg);
+}
 
-    /* ── Profile ── */
-    .profile-text { font-size: .95rem; color: #374151; }
+.hero-name {
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-size: clamp(28px, 5vw, 42px);
+font-weight: 800;
+letter-spacing: -0.5px;
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+margin-bottom: 8px;
+}
+.hero-position {
+font-size: 17px;
+color: var(--text2);
+font-weight: 500;
+margin-bottom: 20px;
+}
+.hero-location {
+font-size: 14px;
+color: var(--text3);
+margin-bottom: 28px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
+}
 
-    /* ── Skills ── */
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .6rem; }
-    .skill-item { font-size: .88rem; }
-    .skill-bar { height: 5px; background: var(--border); border-radius: 99px; margin-top: 3px; }
-    .skill-fill { height: 100%; background: var(--accent); border-radius: 99px; }
+/* Contact chips */
+.contact-chips {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+justify-content: center;
+margin-bottom: 28px;
+}
+.chip {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+background: var(--surface2);
+border: 1px solid var(--border);
+backdrop-filter: blur(8px);
+border-radius: 50px;
+padding: 7px 14px;
+font-size: 13px;
+color: var(--text2);
+font-weight: 500;
+transition: all var(--transition);
+}
+.chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
+.chip .chip-icon { font-size: 14px; }
 
-    /* ── Soft skills ── */
-    .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .tag { background: var(--accent-light); color: var(--accent); font-size: .82rem; padding: .25rem .7rem; border-radius: 99px; }
+/* Nav pills */
+.hero-nav {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+justify-content: center;
+}
+.nav-pill {
+padding: 8px 18px;
+border-radius: 50px;
+font-size: 13px;
+font-weight: 600;
+background: transparent;
+border: 1.5px solid var(--border);
+color: var(--text2);
+cursor: pointer;
+transition: all var(--transition);
+font-family: 'Inter', sans-serif;
+}
+.nav-pill:hover {
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+color: #fff;
+border-color: transparent;
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(91,106,240,0.3);
+}
 
-    /* ── Timeline items (education, publications, courses) ── */
-    .timeline-item { padding-left: 1rem; border-left: 2px solid var(--accent-light); margin-bottom: 1.2rem; }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .item-title { font-weight: 600; font-size: .95rem; }
-    .item-sub { font-size: .85rem; color: var(--accent); }
-    .item-meta { font-size: .82rem; color: var(--muted); margin-top: .15rem; }
-    .item-desc { font-size: .85rem; color: #4b5563; margin-top: .3rem; }
+/* ─── Sections ──────────────────────────────────────────────── */
+.section {
+padding: 80px 0;
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Languages ── */
-    .lang-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .lang-item { text-align: center; }
-    .lang-name { font-weight: 600; font-size: .9rem; }
-    .lang-level { font-size: .8rem; color: var(--muted); }
+.section-header {
+display: flex;
+align-items: center;
+gap: 14px;
+margin-bottom: 40px;
+}
+.section-icon {
+width: 44px;
+height: 44px;
+border-radius: 12px;
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+flex-shrink: 0;
+box-shadow: 0 4px 14px rgba(91,106,240,0.3);
+}
+.section-title {
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-size: 26px;
+font-weight: 700;
+color: var(--text);
+}
+.section-line {
+flex: 1;
+height: 1px;
+background: linear-gradient(to right, var(--border), transparent);
+}
 
-    /* ── Social links ── */
-    .social-links { display: flex; flex-wrap: wrap; gap: .6rem; }
-    .social-link { display: inline-flex; align-items: center; gap: .4rem; background: var(--accent-light); color: var(--accent); font-size: .85rem; padding: .35rem .8rem; border-radius: 8px; }
-    .social-link:hover { background: var(--accent); color: white; text-decoration: none; }
+/* ─── Glass Card ────────────────────────────────────────────── */
+.glass-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-radius: var(--radius);
+padding: 28px;
+box-shadow: var(--card-shadow);
+transition: box-shadow var(--transition), transform var(--transition);
+}
+.glass-card:hover { box-shadow: var(--card-hover); transform: translateY(-3px); }
 
-    /* ── Footer ── */
-    footer { text-align: center; font-size: .8rem; color: var(--muted); padding: 1rem 0 2rem; }
+/* ─── Profile ───────────────────────────────────────────────── */
+.profile-text {
+font-size: 15.5px;
+color: var(--text2);
+line-height: 1.8;
+}
 
-    @media (max-width: 540px) {
-      .hero { flex-direction: column; text-align: center; }
-      .hero-meta { justify-content: center; }
-    }
+/* ─── Education Timeline ────────────────────────────────────── */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+content: '';
+position: absolute;
+left: 8px;
+top: 8px;
+bottom: 8px;
+width: 2px;
+background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+border-radius: 2px;
+}
+.timeline-item {
+position: relative;
+margin-bottom: 32px;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+position: absolute;
+left: -28px;
+top: 6px;
+width: 14px;
+height: 14px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent);
+}
+.timeline-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-radius: var(--radius);
+padding: 24px;
+box-shadow: var(--card-shadow);
+transition: box-shadow var(--transition), transform var(--transition);
+}
+.timeline-card:hover { box-shadow: var(--card-hover); transform: translateX(4px); }
+.timeline-degree {
+font-size: 11px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: var(--accent);
+margin-bottom: 4px;
+}
+.timeline-school {
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-size: 17px;
+font-weight: 700;
+color: var(--text);
+margin-bottom: 4px;
+}
+.timeline-field {
+font-size: 14px;
+color: var(--text2);
+margin-bottom: 10px;
+}
+.timeline-duration {
+display: inline-flex;
+align-items: center;
+gap: 5px;
+font-size: 12px;
+color: var(--text3);
+background: var(--bg2);
+padding: 4px 10px;
+border-radius: 50px;
+margin-bottom: 14px;
+}
+.timeline-details {
+font-size: 13.5px;
+color: var(--text2);
+line-height: 1.7;
+}
+.timeline-details p { margin-bottom: 4px; }
+.timeline-details strong { color: var(--text); font-weight: 600; }
+
+/* ─── Skills ────────────────────────────────────────────────── */
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 16px;
+}
+.skill-item {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-radius: var(--radius-sm);
+padding: 16px 18px;
+box-shadow: var(--card-shadow);
+transition: box-shadow var(--transition), transform var(--transition);
+}
+.skill-item:hover { box-shadow: var(--card-hover); transform: translateY(-2px); }
+.skill-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+.skill-name { font-size: 13.5px; font-weight: 600; color: var(--text); }
+.skill-dots {
+display: flex;
+gap: 4px;
+}
+.skill-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: var(--bg2);
+border: 1.5px solid var(--border);
+transition: background 0.4s ease, transform 0.3s ease;
+}
+.skill-dot.filled {
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+border-color: transparent;
+transform: scale(1.1);
+}
+.skill-bar-track {
+height: 5px;
+background: var(--bg2);
+border-radius: 50px;
+overflow: hidden;
+}
+.skill-bar-fill {
+height: 100%;
+border-radius: 50px;
+background: linear-gradient(90deg, var(--accent), var(--accent2));
+width: 0%;
+transition: width 1s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── Soft Skills ───────────────────────────────────────────── */
+.soft-skills-wrap {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+.soft-chip {
+padding: 8px 16px;
+border-radius: 50px;
+font-size: 13px;
+font-weight: 500;
+background: var(--surface);
+border: 1px solid var(--border);
+color: var(--text2);
+backdrop-filter: blur(8px);
+transition: all var(--transition);
+cursor: default;
+}
+.soft-chip:hover {
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+color: #fff;
+border-color: transparent;
+transform: translateY(-2px);
+box-shadow: 0 6px 16px rgba(91,106,240,0.25);
+}
+
+/* ─── Languages ─────────────────────────────────────────────── */
+.languages-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 16px;
+}
+.lang-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-radius: var(--radius);
+padding: 24px;
+text-align: center;
+box-shadow: var(--card-shadow);
+transition: all var(--transition);
+}
+.lang-card:hover { box-shadow: var(--card-hover); transform: translateY(-4px); }
+.lang-name {
+font-family: 'Plus Jakarta Sans', sans-serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--text);
+margin-bottom: 8px;
+}
+.lang-level-label {
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+color: var(--accent);
+margin-bottom: 14px;
+}
+.lang-ring {
+width: 70px;
+height: 70px;
+margin: 0 auto;
+}
+.lang-ring circle {
+fill: none;
+stroke-width: 6;
+stroke-linecap: round;
+}
+.lang-ring .track { stroke: var(--bg2); }
+.lang-ring .fill {
+stroke: url(#langGrad);
+stroke-dasharray: 188;
+stroke-dashoffset: 188;
+transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
+transform: rotate(-90deg);
+transform-origin: 50% 50%;
+}
+
+/* ─── Courses ───────────────────────────────────────────────── */
+.courses-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 16px;
+}
+.course-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-radius: var(--radius);
+padding: 22px;
+box-shadow: var(--card-shadow);
+transition: all var(--transition);
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.course-card:hover { box-shadow: var(--card-hover); transform: translateY(-4px); }
+.course-icon {
+width: 36px;
+height: 36px;
+border-radius: 10px;
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+margin-bottom: 4px;
+}
+.course-name {
+font-size: 14px;
+font-weight: 600;
+color: var(--text);
+line-height: 1.4;
+}
+.course-inst {
+font-size: 12px;
+color: var(--accent);
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+/* ─── Publications ──────────────────────────────────────────── */
+.pub-list { display: flex; flex-direction: column; gap: 16px; }
+.pub-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-radius: var(--radius);
+padding: 24px;
+box-shadow: var(--card-shadow);
+transition: all var(--transition);
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 18px;
+align-items: start;
+}
+.pub-card:hover { box-shadow: var(--card-hover); transform: translateX(6px); }
+.pub-year-badge {
+background: linear-gradient(135deg, var(--accent), var(--accent2));
+color: #fff;
+font-size: 12px;
+font-weight: 700;
+padding: 6px 10px;
+border-radius: 8px;
+text-align: center;
+min-width: 48px;
+line-height: 1.3;
+}
+.pub-title {
+font-size: 14.5px;
+font-weight: 600;
+color: var(--text);
+line-height: 1.5;
+margin-bottom: 6px;
+}
+.pub-meta {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+align-items: center;
+}
+.pub-journal {
+font-size: 12px;
+color: var(--accent);
+font-weight: 600;
+}
+.pub-authors {
+font-size: 12px;
+color: var(--text3);
+}
+.pub-cited {
+font-size: 11px;
+background: var(--bg2);
+color: var(--text3);
+padding: 2px 8px;
+border-radius: 50px;
+font-weight: 500;
+}
+.pub-link {
+display: inline-flex;
+align-items: center;
+gap: 4px;
+font-size: 12px;
+color: var(--accent);
+font-weight: 500;
+margin-top: 8px;
+transition: gap var(--transition);
+}
+.pub-link:hover { gap: 8px; }
+
+/* ─── Social Links ──────────────────────────────────────────── */
+.links-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 14px;
+}
+.link-card {
+background: var(--surface);
+border: 1px solid var(--border);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-radius: var(--radius);
+padding: 20px;
+box-shadow: var(--card-shadow);
+transition: all var(--transition);
+display: flex;
+align-items: center;
+gap: 14px;
+color: var(--text);
+}
+.link-card:hover {
+box-shadow: var(--card-hover);
+transform: translateY(-4px);
+color: var(--text);
+}
+.link-icon {
+width: 42px;
+height: 42px;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+flex-shrink: 0;
+}
+.link-label { font-size: 11px; color: var(--text3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+.link-value { font-size: 13px; color: var(--text); font-weight: 600; word-break: break-all; }
+
+/* ─── Footer ────────────────────────────────────────────────── */
+footer {
+text-align: center;
+padding: 40px 20px;
+font-size: 13px;
+color: var(--text3);
+border-top: 1px solid var(--border);
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+.hero-card { padding: 36px 24px; }
+.pub-card { grid-template-columns: 1fr; }
+.pub-year-badge { width: fit-content; }
+.section { padding: 60px 0; }
+}
   </style>
 </head>
 <body>
-<div class="container">
 
-  <!-- ════════════════════════════════════════✏️  EDIT YOUR DATA HERE
-  ════════════════════════════════════════ -->
-  <script>
-  const DATA = {
-    name: "Rasool Hamidi Choolabi",
-    title: "Psychologist",
-    avatar: "https://cvresume.ir/uploads/avatars/9cf3d53a-ae8f-487f-9344-51442730d59d/398061/medium-avatar-1310667816.jpg",
-    email: "rasoolhamidi.official@gmail.com",
-    phone: "+98 921 301 4631",
-    location: "Rasht, Iran",
-    birthDate: "July 21, 1990",
+  <!-- Animated background -->
+  <div class="hero-bg"></div>
 
-    profile: `As a psychologist with a Master's degree in General Psychology, I specialize in psychological resilience, emotional and cognitive regulation, and cancer-related mental health. My research focuses on how individuals, especially those with chronic illnesses like cancer, manage emotional and cognitive challenges. Through extensive peer-reviewed publications, I aim to bridge research and practice, developing evidence-based strategies to enhance mental health outcomes.`,
+  <!-- Theme toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+<span class="icon" id="theme-icon">🌙</span>
+<span id="theme-label">Dark</span>
+  </button>
 
-    education: [
-      {
-        degree: "Master's Degree — General Psychology",
-        school: "Ahrar Institute of Technology and Higher Education",
-        period: "Sep 2018 – Sep 2020",
-        notes: [
-          "Thesis: Relationship between psychological hardiness with decision-making styles and risky decision-making in female and male students",
-          "Thesis Grade: Excellent (18/20)",
-          "Overall GPA: 18.55"
-        ]
-      }
-    ],
-
-    skills: [
-      { name: "Psychological testing",    level: 5 },
-      { name: "Research methods",         level: 5 },
-      { name: "Report writing",           level: 5 },
-      { name: "Data analysis",            level: 4 },
-      { name: "Case conceptualization",   level: 5 },
-      { name: "Program development",      level: 5 },
-      { name: "Public speaking",          level: 4 },
-      { name: "Conflict resolution",      level: 5 },
-      { name: "Advanced computer skills", level: 5 },],
-
-    softSkills: [
-      "Empathetic","Active listener","Patient","Adaptive","Collaborative",
-      "Analytical","Problem solver","Compassionate","Nonjudgmental","Ethical",
-      "Resilient","Open-minded","Culturally sensitive","Assertive","Self-aware"
-    ],
-
-    languages: [
-      { name: "Persian", level: "Native" },
-      { name: "English", level: "Upper-Intermediate" },
-    ],
-
-    courses: [
-      { name: "Cognitive Behavioral Therapy (CBT)" },
-      { name: "Mindfulness-Based Stress Reduction (MBSR)" },
-      { name: "Acceptance and Commitment Therapy (ACT)" },
-      { name: "Gen AI use in the research workflow", org: "Elsevier" },
-      { name: "Writing in the Sciences", org: "Coursera" },
-    ],
-
-    publications: [
-      {
-        title: "The effect of Acceptance and Commitment Group Therapy (ACT-G) on emotional schemas and feelings of loneliness in women with depression",
-        journal: "Current Psychology", year: 2025,
-        authors: "O Amani, R Hamidi Choolabi, S Peykani",
-        doi: "https://doi.org/10.1007/s12144-025-07369-y"
-      },
-      {
-        title: "Mediating Effects of Rumination on Insomnia in Cancer Survivors",
-        journal: "Cancer Medicine", year: 2024,
-        authors: "O Amani, MA Mazaheri, MM Moghani, F Zarani, RH Choolabi",
-        doi: "http://dx.doi.org/10.1002/cam4.70189"
-      },
-      {
-        title: "Chemotherapy‐induced cognitive impairment in breast cancer survivors: A systematic review (2000–2021)",
-        journal: "Cancer Reports", year: 2024,
-        authors: "O Amani, MA Mazaheri, MM Moghani, F Zarani, RH Choolabi",
-        doi: "https://doi.org/10.1002/cnr2.1989"
-      },
-      {
-        title: "Childhood maltreatment and cyberbullying victimization/perpetration",
-        journal: "Psychology Hub", year: 2024,
-        authors: "RH Choolabi, ZAN Abadi, K Tavakolpour, O Amani",
-        doi: "https://doi.org/10.13133/2724-2943/18180"
-      },
-      {
-        title: "Adolescents' problematic internet use and psychological well-being",
-        journal: "International Journal of Emotional Education", year: 2024,
-        authors: "F Habibi, R Hamidi Choolabi, Z Asgharzadeh Nasr Abadi",
-        doi: "https://doi.org/10.56300/cont8301"
-      },
-      {
-        title: "Prediction of Risky Decision-Making Based on Decision-Making Styles and Psychological Hardiness",
-        journal: "Journal of Psychology New Ideas", year: 2023,
-        authors: "R Hamidi Choolabi, I Salehi",
-        doi: "https://jnip.ir/article-1-924-en.html"
-      },
-      {
-        title: "The Effects of Storytelling on Shyness and Aggression among Primary School Girls",
-        journal: "18th International Conference on Psychology, Counseling, and Educational Sciences", year: 2023,
-        authors: "FA Mirhashemi, R Hamidi Choolabi",
-        doi: "https://civilica.com/doc/1949117/"
-      },
-    ],
-
-    social: [
-      { label: "Website",     url: "https://rasool-hamidi.mycvresume.ir" },
-      { label: "LinkedIn",    url: "https://linkedin.com/in/rasool-hamidi-choolabi" },
-      { label: "ResearchGate",url: "https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi" },
-      { label: "ORCiD",       url: "https://orcid.org/0000-0002-9604-8804" },
-      { label: "Instagram",   url: "https://instagram.com/rasoolhamidi.official" },
-    ]
-  };
-  </script><!-- ════════════════════════════════════════ -->
-
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const d = DATA;
-
-    // Hero
-    document.getElementById('hero').innerHTML = `
-      <img src="${d.avatar}" alt="${d.name}">
-      <div>
-        <div class="hero-name">${d.name}</div>
-        <div class="hero-title">${d.title}</div>
-        <div class="hero-meta">
-          <span>📍 ${d.location}</span>
-          <span>✉️ <a href="mailto:${d.email}">${d.email}</a></span>
-          <span>📞 ${d.phone}</span><span>🎂 ${d.birthDate}</span>
-        </div>
-      </div>`;
-
-    // Profile
-    document.getElementById('profile').textContent = d.profile;
-
-    // Education
-    document.getElementById('education').innerHTML = d.education.map(e => `
-      <div class="timeline-item">
-        <div class="item-title">${e.degree}</div>
-        <div class="item-sub">${e.school}</div>
-        <div class="item-meta">${e.period}</div>
-        ${e.notes ? `<ul class="item-desc" style="padding-left:1rem">${e.notes.map(n=>`<li>${n}</li>`).join('')}</ul>` : ''}
-      </div>`).join('');
-
-    // Skills
-    document.getElementById('skills').innerHTML = `<div class="skills-grid">${
-      d.skills.map(s => `
-        <div class="skill-item">
-          <span>${s.name}</span>
-          <div class="skill-bar"><div class="skill-fill" style="width:${s.level/5*100}%"></div></div>
-        </div>`).join('')
-    }</div>`;
-
-    // Soft skills
-    document.getElementById('softskills').innerHTML = `<div class="tags">${
-      d.softSkills.map(s => `<span class="tag">${s}</span>`).join('')
-    }</div>`;
-
-    // Languages
-    document.getElementById('languages').innerHTML = `<div class="lang-grid">${
-      d.languages.map(l => `
-        <div class="lang-item">
-          <div class="lang-name">${l.name}</div>
-          <div class="lang-level">${l.level}</div>
-        </div>`).join('')
-    }</div>`;
-
-    // Courses
-    document.getElementById('courses').innerHTML = d.courses.map(c => `
-      <div class="timeline-item">
-        <div class="item-title">${c.name}</div>
-        ${c.org ? `<div class="item-sub">${c.org}</div>` : ''}
-      </div>`).join('');
-
-    // Publications
-    document.getElementById('publications').innerHTML = d.publications.map(p => `
-      <div class="timeline-item">
-        <div class="item-title"><a href="${p.doi}" target="_blank">${p.title}</a></div>
-        <div class="item-sub">${p.journal} · ${p.year}</div>
-        <div class="item-meta">${p.authors}</div>
-      </div>`).join('');
-
-    // Social
-    document.getElementById('social').innerHTML = `<div class="social-links">${
-      d.social.map(s => `<a class="social-link" href="${s.url}" target="_blank">${s.label}</a>`).join('')
-    }</div>`;
-  });
-  </script>
-
-  <!-- Markup (no data here — all injected above) -->
-  <div id="hero" class="hero"></div>
-
-  <div class="card">
-    <div class="section-title">Profile</div>
-    <p id="profile" class="profile-text"></p>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Education</div>
-    <div id="education"></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Skills</div>
-    <div id="skills"></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Soft Skills</div>
-    <div id="softskills"></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Languages</div>
-    <div id="languages"></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Certificates & Courses</div>
-    <div id="courses"></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Publications & Research</div>
-    <div id="publications"></div>
-  </div>
-
-  <div class="card">
-    <div class="section-title">Links</div>
-    <div id="social"></div>
-  </div>
-
-  <footer>© 2026 Rasool Hamidi Choolabi</footer>
+  <!-- ── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" id="top">
+<div class="hero-card">
+<div class="avatar-wrap">
+<div class="avatar-ring"></div>
+<div class="avatar-placeholder" id="hero-avatar">RH</div>
 </div>
-</body>
-</html>
+
+<h1 class="hero-name" id="hero-name"></h1>
+<p class="hero-position" id="hero-position"></p>
+<p class="hero-location" id="hero-location">
+<span>📍</span><span></span>
+</p>
+
+<div class="contact-chips" id="contact-chips"></div>
+
+<nav class="hero-nav">
+<button class="nav-pill" onclick="scrollTo('#profile')">Profile</button>
+<button class="nav-pill" onclick="scrollTo('#education')">Education</button>
+<button class="nav-pill" onclick="scrollTo('#skills')">Skills</button>
+<button class="nav-pill" onclick="scrollTo('#courses')">Courses</button>
+<button class="nav-pill" onclick="scrollTo('#publications')">Publications</button>
+<button class="nav-pill" onclick="scrollTo('#links')">Links</button>
+</nav>
+</div>
+  </section>
+
+  <!-- ── MAIN CONTENT ──────────────────────────────────────────── -->
+  <main class="container">
+
+<!-- Profile -->
+<section class="section" id="profile">
+<div class="section-header">
+<div class="section-icon">🧠</div>
+<h2 class="section-title">Profile</h2>
+<div class="section-line"></div>
+</div>
+<div class="glass-card">
+<p class="profile-text" id="profile-text"></p>
+</div>
+</section>
+
+<!-- Education -->
+<section class="section" id="education">
+<div class="section-header">
+<div class="section-icon">🎓</div>
+<h2 class="section-title">Education</h2>
+<div class="section-line"></div>
+</div>
+<div class="timeline" id="education-list"></div>
+</section>
+
+<!-- Skills -->
+<section class="section" id="skills">
+<div class="section-header">
+<div class="section-icon">⚡</div>
+<h2 class="section-title">Skills</h2>
+<div class="section-line"></div>
+</div>
+<div class="skills-grid" id="skills-grid"></div>
+</section>
+
+<!-- Soft Skills -->
+<section class="section" id="softskills">
+<div class="section-header">
+<div class="section-icon">
