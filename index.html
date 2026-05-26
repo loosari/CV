@@ -1,778 +1,301 @@
 <parameter name="content"><!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rasool Hamidi Choolabi — Psychologist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-/* ─── CSS Variables ─────────────────────────────────────────── */
-:root {
---bg:          #f4f6fb;
---bg2:         #eef1f8;
---surface:     rgba(255,255,255,0.75);
---surface2:    rgba(255,255,255,0.55);
---border:      rgba(255,255,255,0.6);
---text:        #1a1d2e;
---text2:       #4a5068;
---text3:       #7a82a0;
---accent:      #5b6af0;
---accent2:     #8b5cf6;
---accent3:     #06b6d4;
---card-shadow: 0 4px 24px rgba(91,106,240,0.10);
---card-hover:  0 12px 40px rgba(91,106,240,0.18);
---radius:      16px;
---radius-sm:   10px;
---transition:  0.3s cubic-bezier(0.4,0,0.2,1);
-}
-[data-theme="dark"] {
---bg:          #0f1117;
---bg2:         #161922;
---surface:     rgba(30,34,50,0.80);
---surface2:    rgba(30,34,50,0.60);
---border:      rgba(255,255,255,0.08);
---text:        #e8eaf6;
---text2:       #9fa3be;
---text3:       #5c6080;
---card-shadow: 0 4px 24px rgba(0,0,0,0.40);
---card-hover:  0 12px 40px rgba(91,106,240,0.25);
-}
-
-/* ─── Reset & Base ──────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-font-family: 'Inter', sans-serif;
-background: var(--bg);
-color: var(--text);
-line-height: 1.6;
-transition: background var(--transition), color var(--transition);
-overflow-x: hidden;
-}
-a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
-a:hover { color: var(--accent2); }
-img { display: block; max-width: 100%; }
-
-/* ─── Animated Gradient Background ─────────────────────────── */
-.hero-bg {
-position: fixed;
-inset: 0;
-z-index: -1;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #06b6d4 50%, #5b6af0 75%, #8b5cf6 100%);
-background-size: 400% 400%;
-animation: gradientShift 12s ease infinite;
-opacity: 0.12;
-}
-[data-theme="dark"] .hero-bg { opacity: 0.18; }
-@keyframes gradientShift {
-0%   { background-position: 0% 50%; }
-50%  { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-
-/* ─── Layout ────────────────────────────────────────────────── */
-.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-
-/* ─── Theme Toggle ──────────────────────────────────────────── */
-.theme-toggle {
-position: fixed;
-top: 20px;
-right: 20px;
-z-index: 100;
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-radius: 50px;
-padding: 8px 16px;
-cursor: pointer;
-font-size: 18px;
-box-shadow: var(--card-shadow);
-transition: all var(--transition);
-display: flex;
-align-items: center;
-gap: 6px;
-color: var(--text);
-font-family: 'Inter', sans-serif;
-font-size: 13px;
-font-weight: 500;
-}
-.theme-toggle:hover { box-shadow: var(--card-hover); transform: translateY(-1px); }
-.theme-toggle .icon { font-size: 16px; }
-
-/* ─── Hero Section ──────────────────────────────────────────── */
-.hero {
-min-height: 100vh;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 80px 20px 60px;
-position: relative;
-}
-.hero-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(20px);
--webkit-backdrop-filter: blur(20px);
-border-radius: 28px;
-padding: 56px 48px;
-max-width: 700px;
-width: 100%;
-box-shadow: var(--card-shadow);
-text-align: center;
-animation: fadeUp 0.8s ease both;
-}
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(30px); }
-to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Avatar */
-.avatar-wrap {
-position: relative;
-display: inline-block;
-margin-bottom: 28px;
-}
-.avatar-ring {
-position: absolute;
-inset: -6px;
-border-radius: 50%;
-background: linear-gradient(135deg, var(--accent), var(--accent2), var(--accent3));
-animation: spin 6s linear infinite;
-z-index: 0;
-}
-.avatar-ring::after {
-content: '';
-position: absolute;
-inset: 3px;
-border-radius: 50%;
-background: var(--bg);
-}
-@keyframes spin {
-from { transform: rotate(0deg); }
-to   { transform: rotate(360deg); }
-}
-.avatar-img {
-width: 130px;
-height: 130px;
-border-radius: 50%;
-object-fit: cover;
-position: relative;
-z-index: 1;
-border: 3px solid var(--bg);
-}
-.avatar-placeholder {
-width: 130px;
-height: 130px;
-border-radius: 50%;
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 48px;
-font-weight: 700;
-color: #fff;
-position: relative;
-z-index: 1;
-border: 3px solid var(--bg);
-}
-
-.hero-name {
-font-family: 'Plus Jakarta Sans', sans-serif;
-font-size: clamp(28px, 5vw, 42px);
-font-weight: 800;
-letter-spacing: -0.5px;
-background: linear-gradient(135deg, var(--accent), var(--accent2));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-margin-bottom: 8px;
-}
-.hero-position {
-font-size: 17px;
-color: var(--text2);
-font-weight: 500;
-margin-bottom: 20px;
-}
-.hero-location {
-font-size: 14px;
-color: var(--text3);
-margin-bottom: 28px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 6px;
-}
-
-/* Contact chips */
-.contact-chips {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-justify-content: center;
-margin-bottom: 28px;
-}
-.chip {
-display: inline-flex;
-align-items: center;
-gap: 6px;
-background: var(--surface2);
-border: 1px solid var(--border);
-backdrop-filter: blur(8px);
-border-radius: 50px;
-padding: 7px 14px;
-font-size: 13px;
-color: var(--text2);
-font-weight: 500;
-transition: all var(--transition);
-}
-.chip:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-2px); }
-.chip .chip-icon { font-size: 14px; }
-
-/* Nav pills */
-.hero-nav {
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
-justify-content: center;
-}
-.nav-pill {
-padding: 8px 18px;
-border-radius: 50px;
-font-size: 13px;
-font-weight: 600;
-background: transparent;
-border: 1.5px solid var(--border);
-color: var(--text2);
-cursor: pointer;
-transition: all var(--transition);
-font-family: 'Inter', sans-serif;
-}
-.nav-pill:hover {
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-color: #fff;
-border-color: transparent;
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(91,106,240,0.3);
-}
-
-/* ─── Sections ──────────────────────────────────────────────── */
-.section {
-padding: 80px 0;
-opacity: 0;
-transform: translateY(24px);
-transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.section.visible { opacity: 1; transform: translateY(0); }
-
-.section-header {
-display: flex;
-align-items: center;
-gap: 14px;
-margin-bottom: 40px;
-}
-.section-icon {
-width: 44px;
-height: 44px;
-border-radius: 12px;
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 20px;
-flex-shrink: 0;
-box-shadow: 0 4px 14px rgba(91,106,240,0.3);
-}
-.section-title {
-font-family: 'Plus Jakarta Sans', sans-serif;
-font-size: 26px;
-font-weight: 700;
-color: var(--text);
-}
-.section-line {
-flex: 1;
-height: 1px;
-background: linear-gradient(to right, var(--border), transparent);
-}
-
-/* ─── Glass Card ────────────────────────────────────────────── */
-.glass-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(16px);
--webkit-backdrop-filter: blur(16px);
-border-radius: var(--radius);
-padding: 28px;
-box-shadow: var(--card-shadow);
-transition: box-shadow var(--transition), transform var(--transition);
-}
-.glass-card:hover { box-shadow: var(--card-hover); transform: translateY(-3px); }
-
-/* ─── Profile ───────────────────────────────────────────────── */
-.profile-text {
-font-size: 15.5px;
-color: var(--text2);
-line-height: 1.8;
-}
-
-/* ─── Education Timeline ────────────────────────────────────── */
-.timeline { position: relative; padding-left: 32px; }
-.timeline::before {
-content: '';
-position: absolute;
-left: 8px;
-top: 8px;
-bottom: 8px;
-width: 2px;
-background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
-border-radius: 2px;
-}
-.timeline-item {
-position: relative;
-margin-bottom: 32px;
-}
-.timeline-item:last-child { margin-bottom: 0; }
-.timeline-dot {
-position: absolute;
-left: -28px;
-top: 6px;
-width: 14px;
-height: 14px;
-border-radius: 50%;
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent);
-}
-.timeline-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(16px);
--webkit-backdrop-filter: blur(16px);
-border-radius: var(--radius);
-padding: 24px;
-box-shadow: var(--card-shadow);
-transition: box-shadow var(--transition), transform var(--transition);
-}
-.timeline-card:hover { box-shadow: var(--card-hover); transform: translateX(4px); }
-.timeline-degree {
-font-size: 11px;
-font-weight: 700;
-text-transform: uppercase;
-letter-spacing: 1px;
-color: var(--accent);
-margin-bottom: 4px;
-}
-.timeline-school {
-font-family: 'Plus Jakarta Sans', sans-serif;
-font-size: 17px;
-font-weight: 700;
-color: var(--text);
-margin-bottom: 4px;
-}
-.timeline-field {
-font-size: 14px;
-color: var(--text2);
-margin-bottom: 10px;
-}
-.timeline-duration {
-display: inline-flex;
-align-items: center;
-gap: 5px;
-font-size: 12px;
-color: var(--text3);
-background: var(--bg2);
-padding: 4px 10px;
-border-radius: 50px;
-margin-bottom: 14px;
-}
-.timeline-details {
-font-size: 13.5px;
-color: var(--text2);
-line-height: 1.7;
-}
-.timeline-details p { margin-bottom: 4px; }
-.timeline-details strong { color: var(--text); font-weight: 600; }
-
-/* ─── Skills ────────────────────────────────────────────────── */
-.skills-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-gap: 16px;
-}
-.skill-item {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-radius: var(--radius-sm);
-padding: 16px 18px;
-box-shadow: var(--card-shadow);
-transition: box-shadow var(--transition), transform var(--transition);
-}
-.skill-item:hover { box-shadow: var(--card-hover); transform: translateY(-2px); }
-.skill-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 10px;
-}
-.skill-name { font-size: 13.5px; font-weight: 600; color: var(--text); }
-.skill-dots {
-display: flex;
-gap: 4px;
-}
-.skill-dot {
-width: 8px;
-height: 8px;
-border-radius: 50%;
-background: var(--bg2);
-border: 1.5px solid var(--border);
-transition: background 0.4s ease, transform 0.3s ease;
-}
-.skill-dot.filled {
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-border-color: transparent;
-transform: scale(1.1);
-}
-.skill-bar-track {
-height: 5px;
-background: var(--bg2);
-border-radius: 50px;
-overflow: hidden;
-}
-.skill-bar-fill {
-height: 100%;
-border-radius: 50px;
-background: linear-gradient(90deg, var(--accent), var(--accent2));
-width: 0%;
-transition: width 1s cubic-bezier(0.4,0,0.2,1);
-}
-
-/* ─── Soft Skills ───────────────────────────────────────────── */
-.soft-skills-wrap {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-}
-.soft-chip {
-padding: 8px 16px;
-border-radius: 50px;
-font-size: 13px;
-font-weight: 500;
-background: var(--surface);
-border: 1px solid var(--border);
-color: var(--text2);
-backdrop-filter: blur(8px);
-transition: all var(--transition);
-cursor: default;
-}
-.soft-chip:hover {
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-color: #fff;
-border-color: transparent;
-transform: translateY(-2px);
-box-shadow: 0 6px 16px rgba(91,106,240,0.25);
-}
-
-/* ─── Languages ─────────────────────────────────────────────── */
-.languages-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-gap: 16px;
-}
-.lang-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-radius: var(--radius);
-padding: 24px;
-text-align: center;
-box-shadow: var(--card-shadow);
-transition: all var(--transition);
-}
-.lang-card:hover { box-shadow: var(--card-hover); transform: translateY(-4px); }
-.lang-name {
-font-family: 'Plus Jakarta Sans', sans-serif;
-font-size: 18px;
-font-weight: 700;
-color: var(--text);
-margin-bottom: 8px;
-}
-.lang-level-label {
-font-size: 12px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 1px;
-color: var(--accent);
-margin-bottom: 14px;
-}
-.lang-ring {
-width: 70px;
-height: 70px;
-margin: 0 auto;
-}
-.lang-ring circle {
-fill: none;
-stroke-width: 6;
-stroke-linecap: round;
-}
-.lang-ring .track { stroke: var(--bg2); }
-.lang-ring .fill {
-stroke: url(#langGrad);
-stroke-dasharray: 188;
-stroke-dashoffset: 188;
-transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
-transform: rotate(-90deg);
-transform-origin: 50% 50%;
-}
-
-/* ─── Courses ───────────────────────────────────────────────── */
-.courses-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-gap: 16px;
-}
-.course-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-radius: var(--radius);
-padding: 22px;
-box-shadow: var(--card-shadow);
-transition: all var(--transition);
-display: flex;
-flex-direction: column;
-gap: 8px;
-}
-.course-card:hover { box-shadow: var(--card-hover); transform: translateY(-4px); }
-.course-icon {
-width: 36px;
-height: 36px;
-border-radius: 10px;
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 16px;
-margin-bottom: 4px;
-}
-.course-name {
-font-size: 14px;
-font-weight: 600;
-color: var(--text);
-line-height: 1.4;
-}
-.course-inst {
-font-size: 12px;
-color: var(--accent);
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 0.5px;
-}
-
-/* ─── Publications ──────────────────────────────────────────── */
-.pub-list { display: flex; flex-direction: column; gap: 16px; }
-.pub-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(16px);
--webkit-backdrop-filter: blur(16px);
-border-radius: var(--radius);
-padding: 24px;
-box-shadow: var(--card-shadow);
-transition: all var(--transition);
-display: grid;
-grid-template-columns: auto 1fr;
-gap: 18px;
-align-items: start;
-}
-.pub-card:hover { box-shadow: var(--card-hover); transform: translateX(6px); }
-.pub-year-badge {
-background: linear-gradient(135deg, var(--accent), var(--accent2));
-color: #fff;
-font-size: 12px;
-font-weight: 700;
-padding: 6px 10px;
-border-radius: 8px;
-text-align: center;
-min-width: 48px;
-line-height: 1.3;
-}
-.pub-title {
-font-size: 14.5px;
-font-weight: 600;
-color: var(--text);
-line-height: 1.5;
-margin-bottom: 6px;
-}
-.pub-meta {
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
-align-items: center;
-}
-.pub-journal {
-font-size: 12px;
-color: var(--accent);
-font-weight: 600;
-}
-.pub-authors {
-font-size: 12px;
-color: var(--text3);
-}
-.pub-cited {
-font-size: 11px;
-background: var(--bg2);
-color: var(--text3);
-padding: 2px 8px;
-border-radius: 50px;
-font-weight: 500;
-}
-.pub-link {
-display: inline-flex;
-align-items: center;
-gap: 4px;
-font-size: 12px;
-color: var(--accent);
-font-weight: 500;
-margin-top: 8px;
-transition: gap var(--transition);
-}
-.pub-link:hover { gap: 8px; }
-
-/* ─── Social Links ──────────────────────────────────────────── */
-.links-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-gap: 14px;
-}
-.link-card {
-background: var(--surface);
-border: 1px solid var(--border);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border-radius: var(--radius);
-padding: 20px;
-box-shadow: var(--card-shadow);
-transition: all var(--transition);
-display: flex;
-align-items: center;
-gap: 14px;
-color: var(--text);
-}
-.link-card:hover {
-box-shadow: var(--card-hover);
-transform: translateY(-4px);
-color: var(--text);
-}
-.link-icon {
-width: 42px;
-height: 42px;
-border-radius: 12px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 20px;
-flex-shrink: 0;
-}
-.link-label { font-size: 11px; color: var(--text3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-.link-value { font-size: 13px; color: var(--text); font-weight: 600; word-break: break-all; }
-
-/* ─── Footer ────────────────────────────────────────────────── */
-footer {
-text-align: center;
-padding: 40px 20px;
-font-size: 13px;
-color: var(--text3);
-border-top: 1px solid var(--border);
-}
-
-/* ─── Responsive ────────────────────────────────────────────── */
-@media (max-width: 600px) {
-.hero-card { padding: 36px 24px; }
-.pub-card { grid-template-columns: 1fr; }
-.pub-year-badge { width: fit-content; }
-.section { padding: 60px 0; }
-}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasool Hamidi Choolabi — Psychologist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f2ff;--surface:rgba(255,255,255,0.82);--border:rgba(200,210,255,0.60);--text:#1a1d2e;--text2:#4a5068;--text3:#8a90b0;--accent:#5b6af0;--accent2:#8b5cf6;--sh:0 4px 24px rgba(91,106,240,.10);--sh2:0 12px 40px rgba(91,106,240,.22);--r:16px}
+[data-theme="dark"]{--bg:#0f1117;--surface:rgba(22,25,42,.92);--border:rgba(255,255,255,.08);--text:#e8eaf6;--text2:#9fa3be;--text3:#5c6080;--sh:0 4px 24px rgba(0,0,0,.40);--sh2:0 12px 40px rgba(91,106,240,.32)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent2)}
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#667eea,#764ba2,#06b6d4,#5b6af0,#8b5cf6);background-size:400% 400%;animation:bgA 14s ease infinite;opacity:.10}
+[data-theme="dark"] body::before{opacity:.18}
+@keyframes bgA{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+#tbtn{position:fixed;top:18px;right:18px;z-index:999;background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(12px);border-radius:50px;padding:8px 18px;cursor:pointer;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--text);box-shadow:var(--sh);transition:all .3s}
+#tbtn:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 20px 60px}
+.hcard{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(20px);border-radius:28px;padding:52px 44px;max-width:680px;width:100%;box-shadow:var(--sh);text-align:center;animation:fadeUp .7s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.av-wrap{position:relative;display:inline-block;margin-bottom:26px}
+.av-ring{position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(var(--accent),var(--accent2),#06b6d4,var(--accent));animation:spin 5s linear infinite;z-index:0}
+.av-ring::after{content:'';position:absolute;inset:4px;border-radius:50%;background:var(--bg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.av-inner{position:relative;z-index:1;width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:800;color:#fff;border:3px solid var(--bg)}
+.hname{font-size:clamp(24px,5vw,38px);font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.hpos{font-size:16px;color:var(--text2);font-weight:500;margin-bottom:5px}
+.hloc{font-size:13px;color:var(--text3);margin-bottom:26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
+.chip{display:inline-flex;align-items:center;gap:5px;background:rgba(91,106,240,.08);border:1px solid var(--border);border-radius:50px;padding:6px 14px;font-size:13px;color:var(--text2);font-weight:500;transition:all .25s}
+.chip:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-2px)}
+.npills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.npill{padding:7px 16px;border-radius:50px;font-size:13px;font-weight:600;background:transparent;border:1.5px solid var(--border);color:var(--text2);cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif}
+.npill:hover{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 6px 18px rgba(91,106,240,.30)}
+.sec{padding:72px 0;opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.sec.vis{opacity:1;transform:translateY(0)}
+.shead{display:flex;align-items:center;gap:12px;margin-bottom:36px}
+.sico{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;box-shadow:0 4px 14px rgba(91,106,240,.28)}
+.stitle{font-size:24px;font-weight:700;color:var(--text)}
+.sline{flex:1;height:1px;background:linear-gradient(to right,var(--border),transparent)}
+.card{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(14px);border-radius:var(--r);padding:26px;box-shadow:var(--sh);transition:box-shadow .3s,transform .3s}
+.card:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.ptext{font-size:15px;color:var(--text2);line-height:1.85}
+.tl{position:relative;padding-left:30px}
+.tl::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent);border-radius:2px}
+.tli{position:relative;margin-bottom:28px}
+.tli:last-child{margin-bottom:0}
+.tldot{position:absolute;left:-26px;top:7px;width:13px;height:13px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--accent)}
+.tlcard{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(14px);border-radius:var(--r);padding:22px;box-shadow:var(--sh);transition:all .3s}
+.tlcard:hover{box-shadow:var(--sh2);transform:translateX(4px)}
+.tlbadge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:4px}
+.tlschool{font-size:17px;font-weight:700;color:var(--text);margin-bottom:3px}
+.tlfield{font-size:14px;color:var(--text2);margin-bottom:10px}
+.tldur{display:inline-block;font-size:12px;color:var(--text3);background:rgba(91,106,240,.08);padding:3px 10px;border-radius:50px;margin-bottom:14px}
+.tldet{font-size:13px;color:var(--text2);line-height:1.8}
+.tldet p{margin-bottom:3px}
+.tldet strong{color:var(--text);font-weight:600}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.ski{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(12px);border-radius:12px;padding:16px 18px;box-shadow:var(--sh);transition:all .3s}
+.ski:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+.ktop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.kname{font-size:13px;font-weight:600;color:var(--text)}
+.kdots{display:flex;gap:4px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(91,106,240,.12);border:1.5px solid var(--border);transition:background .4s}
+.dot.on{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent}
+.ktrack{height:4px;background:rgba(91,106,240,.10);border-radius:50px;overflow:hidden}
+.kfill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.softwrap{display:flex;flex-wrap:wrap;gap:10px}
+.softchip{padding:8px 16px;border-radius:50px;font-size:13px;font-weight:500;background:var(--surface);border:1px solid var(--border);color:var(--text2);backdrop-filter:blur(8px);transition:all .25s;cursor:default}
+.softchip:hover{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:0 6px 16px rgba(91,106,240,.25)}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+.lcard{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(12px);border-radius:var(--r);padding:22px;text-align:center;box-shadow:var(--sh);transition:all .3s}
+.lcard:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.lname{font-size:17px;font-weight:700;color:var(--text);margin-bottom:3px}
+.llbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:14px}
+.lring{width:68px;height:68px;margin:0 auto 10px}
+.lring svg{width:100%;height:100%}
+.rtrack{fill:none;stroke:rgba(91,106,240,.12);stroke-width:6}
+.rfill{fill:none;stroke-width:6;stroke-linecap:round;stroke:url(#lg);stroke-dasharray:188;stroke-dashoffset:188;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.ccard{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(12px);border-radius:var(--r);padding:20px;box-shadow:var(--sh);transition:all .3s}
+.ccard:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.cico{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:15px;margin-bottom:10px}
+.cname{font-size:14px;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:5px}
+.cinst{font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.plist{display:flex;flex-direction:column;gap:14px}
+.pcard{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(14px);border-radius:var(--r);padding:22px;box-shadow:var(--sh);transition:all .3s;display:flex;gap:16px;align-items:flex-start}
+.pcard:hover{box-shadow:var(--sh2);transform:translateX(5px)}
+.pyr{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:12px;font-weight:700;padding:6px 10px;border-radius:8px;text-align:center;min-width:46px;flex-shrink:0;line-height:1.3}
+.pbody{flex:1;min-width:0}
+.ptitle{font-size:14px;font-weight:600;color:var(--text);line-height:1.5;margin-bottom:6px}
+.pmeta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.pjournal{font-size:12px;color:var(--accent);font-weight:600}
+.pauthors{font-size:12px;color:var(--text3)}
+.pcited{font-size:11px;background:rgba(91,106,240,.10);color:var(--text3);padding:2px 8px;border-radius:50px;font-weight:500}
+.pdoi{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--accent);font-weight:500;margin-top:7px}
+.pdoi:hover{color:var(--accent2)}
+.linkgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.lkcard{background:var(--surface);border:1px solid var(--border);backdrop-filter:blur(12px);border-radius:var(--r);padding:18px;box-shadow:var(--sh);transition:all .3s;display:flex;align-items:center;gap:12px;color:var(--text)}
+.lkcard:hover{box-shadow:var(--sh2);transform:translateY(-4px);color:var(--text)}
+.lkico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.lklbl{font-size:11px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.lkval{font-size:13px;color:var(--text);font-weight:600;word-break:break-all}
+footer{text-align:center;padding:36px 20px;font-size:13px;color:var(--text3);border-top:1px solid var(--border);margin-top:20px}
+@media(max-width:580px){.hcard{padding:36px 22px}.pcard{flex-direction:column}.sec{padding:52px 0}}
+</style>
 </head>
 <body>
 
-  <!-- Animated background -->
-  <div class="hero-bg"></div>
+<button id="tbtn" onclick="toggleTheme()">🌙 Dark</button>
 
-  <!-- Theme toggle -->
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-<span class="icon" id="theme-icon">🌙</span>
-<span id="theme-label">Dark</span>
-  </button>
-
-  <!-- ── HERO ─────────────────────────────────────────────────── -->
-  <section class="hero" id="top">
-<div class="hero-card">
-<div class="avatar-wrap">
-<div class="avatar-ring"></div>
-<div class="avatar-placeholder" id="hero-avatar">RH</div>
+<section class="hero">
+  <div class="hcard">
+<div class="av-wrap">
+<div class="av-ring"></div>
+<div class="av-inner">RH</div>
 </div>
+<h1 class="hname" id="hero-name"></h1>
+<p class="hpos" id="hero-pos"></p>
+<p class="hloc" id="hero-loc"></p>
+<div class="chips" id="chips"></div>
+<div class="npills" id="npills"></div>
+  </div>
+</section>
 
-<h1 class="hero-name" id="hero-name"></h1>
-<p class="hero-position" id="hero-position"></p>
-<p class="hero-location" id="hero-location">
-<span>📍</span><span></span>
-</p>
-
-<div class="contact-chips" id="contact-chips"></div>
-
-<nav class="hero-nav">
-<button class="nav-pill" onclick="scrollTo('#profile')">Profile</button>
-<button class="nav-pill" onclick="scrollTo('#education')">Education</button>
-<button class="nav-pill" onclick="scrollTo('#skills')">Skills</button>
-<button class="nav-pill" onclick="scrollTo('#courses')">Courses</button>
-<button class="nav-pill" onclick="scrollTo('#publications')">Publications</button>
-<button class="nav-pill" onclick="scrollTo('#links')">Links</button>
-</nav>
-</div>
+<main class="wrap">
+  <section class="sec" id="sec-profile">
+<div class="shead"><div class="sico">🧠</div><h2 class="stitle">Profile</h2><div class="sline"></div></div>
+<div class="card"><p class="ptext" id="profile-text"></p></div>
   </section>
+  <section class="sec" id="sec-education">
+<div class="shead"><div class="sico">🎓</div><h2 class="stitle">Education</h2><div class="sline"></div></div>
+<div class="tl" id="edu-list"></div>
+  </section>
+  <section class="sec" id="sec-skills">
+<div class="shead"><div class="sico">⚡</div><h2 class="stitle">Skills</h2><div class="sline"></div></div>
+<div class="sgrid" id="skills-grid"></div>
+  </section>
+  <section class="sec" id="sec-soft">
+<div class="shead"><div class="sico">💡</div><h2 class="stitle">Soft Skills</h2><div class="sline"></div></div>
+<div class="card"><div class="softwrap" id="soft-wrap"></div></div>
+  </section>
+  <section class="sec" id="sec-lang">
+<div class="shead"><div class="sico">🌐</div><h2 class="stitle">Languages</h2><div class="sline"></div></div>
+<div class="lgrid" id="lang-grid"></div>
+  </section>
+  <section class="sec" id="sec-courses">
+<div class="shead"><div class="sico">📜</div><h2 class="stitle">Certificates &amp; Courses</h2><div class="sline"></div></div>
+<div class="cgrid" id="courses-grid"></div>
+  </section>
+  <section class="sec" id="sec-pub">
+<div class="shead"><div class="sico">📚</div><h2 class="stitle">Publications &amp; Research</h2><div class="sline"></div></div>
+<div class="plist" id="pub-list"></div>
+  </section>
+  <section class="sec" id="sec-links">
+<div class="shead"><div class="sico">🔗</div><h2 class="stitle">Links</h2><div class="sline"></div></div>
+<div class="linkgrid" id="links-grid"></div>
+  </section>
+</main>
 
-  <!-- ── MAIN CONTENT ──────────────────────────────────────────── -->
-  <main class="container">
+<footer><p>Rasool Hamidi Choolabi &mdash; Psychologist &amp; Researcher &mdash; Rasht, Iran</p></footer>
 
-<!-- Profile -->
-<section class="section" id="profile">
-<div class="section-header">
-<div class="section-icon">🧠</div>
-<h2 class="section-title">Profile</h2>
-<div class="section-line"></div>
-</div>
-<div class="glass-card">
-<p class="profile-text" id="profile-text"></p>
-</div>
-</section>
+<script>
+var D = {
+  name: "Rasool Hamidi Choolabi",
+  position: "Psychologist / Researcher",
+  location: "Rasht, Iran",
+  email: "rasoolhamidi.official@gmail.com",
+  phone: "+98 921 301 4631",
+  profile: "M.Sc. in General Psychology with a focus on psychological resilience, emotional and cognitive regulation, and cancer-related mental health. Experienced in research design, psychological assessment, and evidence-based therapeutic approaches including CBT, ACT, and MBSR. Committed to advancing mental health through rigorous research and compassionate clinical practice.",
+  education: [
+{
+degree: "Master's Degree",
+field: "General Psychology",
+school: "Ahrar Institute of Technology and Higher Education",
+duration: "Sep 2018 – Sep 2020",
+details: [
+{label:"Type of Program", value:"Coursework-based"},
+{label:"Thesis", value:"Relationship between psychological hardiness with decision-making styles and risky decision-making in female and male students"},
+{label:"Thesis Grade", value:"Excellent (18/20)"},
+{label:"Overall GPA", value:"18.55 / 20"}
+]
+}
+  ],
+  skills: [
+{name:"Psychological Testing",    level:5},
+{name:"Research Methods",         level:5},
+{name:"Report Writing",           level:5},
+{name:"Data Analysis",            level:4},
+{name:"Case Conceptualization",   level:5},
+{name:"Program Development",      level:5},
+{name:"Public Speaking",          level:4},
+{name:"Conflict Resolution",      level:5},
+{name:"Advanced Computer Skills", level:5}
+  ],
+  softSkills: ["Empathetic","Active Listener","Patient","Adaptive","Collaborative","Analytical","Problem Solver","Compassionate","Nonjudgmental","Ethical","Resilient","Open-minded","Culturally Sensitive","Assertive","Self-aware"],
+  languages: [
+{name:"Persian", pct:100, label:"Native"},
+{name:"English", pct:72,  label:"Professional"}
+  ],
+  courses: [
+{name:"Writing in the Sciences",             institution:"Coursera",  ico:"📝"},
+{name:"Gen AI Use in the Research Workflow", institution:"Elsevier",  ico:"🤖"},
+{name:"Cognitive Behavioral Therapy (CBT)",  institution:"",          ico:"🧩"},
+{name:"Mindfulness-Based Stress Reduction",  institution:"",          ico:"🧘"},
+{name:"Acceptance and Commitment Therapy",   institution:"",          ico:"💚"}
+  ],
+  publications: [
+{year:2025, title:"The effect of Acceptance and Commitment Group Therapy (ACT-G) on emotional schemas and feelings of loneliness in women with depression", journal:"Current Psychology", authors:"O Amani, R Hamidi Choolabi, S Peykani", doi:"https://doi.org/10.1007/s12144-025-07369-y", cited:null},
+{year:2024, title:"Mediating Effects of Rumination on Insomnia in Cancer Survivors: Influences of Cancer-Related Fatigue, Fear of Recurrence, and Psychological Distress", journal:"Cancer Medicine", authors:"O Amani, MA Mazaheri, MM Moghani, F Ghanbari Motlagh, R Hamidi Choolabi", doi:"https://doi.org/10.1002/cam4.70148", cited:null},
+{year:2024, title:"Effectiveness of Mindfulness-Based Stress Reduction (MBSR) on Psychological Distress and Resilience in Cancer Survivors", journal:"Supportive Care in Cancer", authors:"O Amani, MA Mazaheri, MM Moghani, F Ghanbari Motlagh, R Hamidi Choolabi", doi:"https://doi.org/10.1007/s00520-024-08614-3", cited:"Cited: 3"},
+{year:2024, title:"Effectiveness of Mindfulness-Based Stress Reduction (MBSR) on Fatigue and Fear of Cancer Recurrence in Cancer Survivors", journal:"BMC Psychology", authors:"O Amani, MA Mazaheri, MM Moghani, F Ghanbari Motlagh, R Hamidi Choolabi", doi:"https://doi.org/10.1186/s40359-024-01671-3", cited:"Cited: 5"},
+{year:2023, title:"Effectiveness of Acceptance and Commitment Therapy (ACT) on Psychological Distress and Resilience in Patients with Multiple Sclerosis", journal:"BMC Neurology", authors:"O Amani, R Hamidi Choolabi", doi:"https://doi.org/10.1186/s12883-023-03374-3", cited:"Cited: 14"},
+{year:2023, title:"Effectiveness of Acceptance and Commitment Therapy (ACT) on Fatigue and Sleep Quality in Patients with Multiple Sclerosis", journal:"BMC Neurology", authors:"O Amani, R Hamidi Choolabi", doi:"https://doi.org/10.1186/s12883-023-03375-2", cited:"Cited: 10"},
+{year:2022, title:"Effectiveness of Acceptance and Commitment Therapy (ACT) on Anxiety and Depression in Patients with Multiple Sclerosis", journal:"BMC Psychiatry", authors:"O Amani, R Hamidi Choolabi", doi:"https://doi.org/10.1186/s12888-022-04360-4", cited:"Cited: 30"},
+{year:2021, title:"Relationship between Psychological Hardiness with Decision-Making Styles and Risky Decision-Making", journal:"Journal of Research in Psychological Health", authors:"R Hamidi Choolabi, O Amani", doi:null, cited:null}
+  ],
+  links: [
+{label:"Email",          value:"rasoolhamidi.official@gmail.com",  href:"mailto:rasoolhamidi.official@gmail.com",                              ico:"✉️", bg:"linear-gradient(135deg,#5b6af0,#8b5cf6)"},
+{label:"Phone",          value:"+98 921 301 4631",                  href:"tel:+989213014631",                                                   ico:"📞", bg:"linear-gradient(135deg,#06b6d4,#5b6af0)"},
+{label:"Google Scholar", value:"View Profile",                      href:"https://scholar.google.com/citations?user=Gy_YWUIAAAAJ",              ico:"🎓", bg:"linear-gradient(135deg,#f59e0b,#ef4444)"},
+{label:"ResearchGate",   value:"View Profile",                      href:"https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi",         ico:"🔬", bg:"linear-gradient(135deg,#10b981,#06b6d4)"},
+{label:"ORCID",          value:"0009-0007-5498-5534",               href:"https://orcid.org/0009-0007-5498-5534",                               ico:"🆔", bg:"linear-gradient(135deg,#a3e635,#10b981)"}
+  ]
+};
 
-<!-- Education -->
-<section class="section" id="education">
-<div class="section-header">
-<div class="section-icon">🎓</div>
-<h2 class="section-title">Education</h2>
-<div class="section-line"></div>
-</div>
-<div class="timeline" id="education-list"></div>
-</section>
+/* ---- helpers ---- */
+function el(tag, cls, html) {
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html !== undefined) e.innerHTML = html;
+  return e;
+}
+function $(id){ return document.getElementById(id); }
 
-<!-- Skills -->
-<section class="section" id="skills">
-<div class="section-header">
-<div class="section-icon">⚡</div>
-<h2 class="section-title">Skills</h2>
-<div class="section-line"></div>
-</div>
-<div class="skills-grid" id="skills-grid"></div>
-</section>
+/* ---- hero ---- */
+$('hero-name').textContent = D.name;
+$('hero-pos').textContent  = D.position;
+$('hero-loc').textContent  = '📍 ' + D.location;
 
-<!-- Soft Skills -->
-<section class="section" id="softskills">
-<div class="section-header">
-<div class="section-icon">
+[
+  {ico:'✉️', text:D.email, href:'mailto:'+D.email},
+  {ico:'📞', text:D.phone, href:'tel:'+D.phone.replace(/\s/g,'')}
+].forEach(function(c){
+  var a = el('a','chip', c.ico + ' ' + c.text);
+  a.href = c.href;
+  $('chips').appendChild(a);
+});
+
+[
+  {label:'Profile',      id:'sec-profile'},
+  {label:'Education',    id:'sec-education'},
+  {label:'Skills',       id:'sec-skills'},
+  {label:'Languages',    id:'sec-lang'},
+  {label:'Courses',      id:'sec-courses'},
+  {label:'Publications', id:'sec-pub'},
+  {label:'Links',        id:'sec-links'}
+].forEach(function(n){
+  var b = el('button','npill', n.label);
+  b.onclick = function(){ document.getElementById(n.id).scrollIntoView({behavior:'smooth'}); };
+  $('npills').appendChild(b);
+});
+
+/* ---- profile ---- */
+$('profile-text').textContent = D.profile;
+
+/* ---- education ---- */
+D.education.forEach(function(e){
+  var li = el('div','tli');
+  li.appendChild(el('div','tldot'));
+  var det = e.details.map(function(d){
+return '<p><strong>' + d.label + ':</strong> ' + d.value + '</p>';
+  }).join('');
+  li.appendChild(el('div','tlcard',
+'<div class="tlbadge">' + e.degree + '</div>' +
+'<div class="tlschool">' + e.school + '</div>' +
+'<div class="tlfield">' + e.field + '</div>' +
+'<div class="tldur">' + e.duration + '</div>' +
+'<div class="tldet">' + det + '</div>'
+  ));
+  $('edu-list').appendChild(li);
+});
+
+/* ---- skills ---- */
+D.skills.forEach(function(s){
+  var dots = '';
+  for(var i = 1; i <= 5; i++) dots += '<div class="dot' + (i <= s.level ? ' on' : '') + '"></div>';
+  var pct = (s.level / 5 * 100) + '%';
+  $('skills-grid').appendChild(el('div','ski',
+'<div class="ktop"><span class="kname">' + s.name + '</span><div class="kdots">' + dots + '</div></div>' +
+'<div class="ktrack"><div class="kfill" data-w="' + pct + '"></div></div>'
+  ));
+});
+
+/* ---- soft skills
