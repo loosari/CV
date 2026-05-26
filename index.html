@@ -1,1226 +1,1018 @@
-<parameter name="content"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rasool Hamidi Choolabi — Psychologist</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Rasool Hamidi — Psychologist & Researcher</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
---bg: #0f1117;
---bg2: #161b27;
---card: rgba(255,255,255,0.04);
---border: rgba(255,255,255,0.08);
---accent: #6c8fff;
---accent2: #a78bfa;
---text: #e8eaf0;
---muted: #8b92a5;
---radius: 16px;
-/* ── Publications ── */
-.pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+:root{
+  --bg:#0b1020;
+  --bg-soft:#121a30;
+  --card:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.08);
 
-.pub-item {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  background: #1e1e2e;
-  border-radius: 8px;
-  border-left: 3px solid #7c6af7;
-  transition: border-color 0.2s;
-}
-.pub-item:hover { border-left-color: #a78bfa; }
+  --text:#f5f7fb;
+  --muted:#94a3b8;
 
-.pub-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  min-width: 48px;
+  --primary:#7c8cff;
+  --primary-2:#b48cff;
+
+  --shadow:0 10px 35px rgba(0,0,0,.35);
+
+  --radius:22px;
+
+  --max-width:1150px;
 }
 
-.pub-year {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #a78bfa;
-  white-space: nowrap;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.pub-citations {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 0.75rem;
-  color: #6b7280;
+html{
+  scroll-behavior:smooth;
 }
 
-.pub-content { display: flex; flex-direction: column; gap: 0.3rem; }
+body{
+  font-family:'Inter',sans-serif;
+  background:
+  radial-gradient(circle at top left, rgba(124,140,255,.18), transparent 30%),
+  radial-gradient(circle at bottom right, rgba(180,140,255,.12), transparent 30%),
+  var(--bg);
 
-.pub-title {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #e2e8f0;
-  text-decoration: none;
-  line-height: 1.5;
-}
-.pub-title:hover { color: #a78bfa; text-decoration: underline; }
-
-.pub-journal {
-  font-size: 0.78rem;
-  color: #6b7280;
-  font-style: italic;
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.7;
 }
 
-.scholar-link {
-  display: inline-block;
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  color: #7c6af7;
-  text-decoration: none;
-}
-.scholar-link:hover { text-decoration: underline; }
-
-
-   /* ── Links & Profiles ── */
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
+img{
+  max-width:100%;
+  display:block;
 }
 
-.link-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--text);
-  transition: border-color .2s, transform .2s, box-shadow .2s;
+a{
+  text-decoration:none;
 }
 
-.link-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99,102,241,.15);
+.container{
+  width:min(100%, var(--max-width));
+  margin:auto;
+  padding:32px 20px 80px;
 }
 
-.link-icon {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: rgba(255,255,255,.05);
+/* ---------- NAV ---------- */
+
+.nav{
+  position:sticky;
+  top:15px;
+  z-index:1000;
+
+  display:flex;
+  justify-content:center;
+
+  margin-bottom:28px;
 }
 
-.link-icon svg {
-  width: 32px;
-  height: 32px;
+.nav-inner{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+
+  padding:12px 18px;
+
+  border:1px solid var(--border);
+  background:rgba(10,14,25,.65);
+
+  backdrop-filter:blur(14px);
+
+  border-radius:999px;
 }
 
-/* plain globe icon gets accent color */
-.link-icon:not(.orcid-icon):not(.rg-icon):not(.scholar-icon) svg {
-  color: var(--accent);
+.nav a{
+  color:var(--muted);
+  font-size:.9rem;
+  font-weight:500;
+
+  transition:.25s;
 }
 
-.link-info {
-  display: flex;
-  flex-direction: column;
-  gap: .15rem;
-  min-width: 0;
+.nav a:hover{
+  color:white;
 }
 
-.link-label {
-  font-size: .7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  color: var(--muted);
+/* ---------- HERO ---------- */
+
+.hero{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:34px;
+
+  padding:34px;
+
+  border:1px solid var(--border);
+  background:var(--card);
+
+  border-radius:var(--radius);
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:var(--shadow);
+
+  margin-bottom:28px;
 }
 
-.link-value {
-  font-size: .85rem;
-  font-weight: 500;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.hero-image{
+  position:relative;
 }
 
+.hero-image img{
+  width:100%;
+  aspect-ratio:1/1;
+
+  object-fit:cover;
+
+  border-radius:24px;
+
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.status{
+  position:absolute;
+  bottom:18px;
+  left:18px;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  background:rgba(15,23,42,.75);
+
+  backdrop-filter:blur(10px);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  font-size:.85rem;
+}
+
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.kicker{
+  color:var(--primary);
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.78rem;
+
+  margin-bottom:10px;
+}
+
+.hero h1{
+  font-size:3.1rem;
+  line-height:1.05;
+
+  margin-bottom:18px;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:760px;
+  margin-bottom:28px;
+}
+
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.meta-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  padding:12px 16px;
+
+  border-radius:14px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  color:#dbe4f0;
+
+  font-size:.92rem;
+}
+
+/* ---------- GRID ---------- */
+
+.main-grid{
+  display:grid;
+  grid-template-columns:1fr 370px;
+  gap:28px;
+}
+
+/* ---------- CARD ---------- */
+
+.card{
+  background:var(--card);
+
+  border:1px solid var(--border);
+
+  border-radius:var(--radius);
+
+  padding:28px;
+
+  margin-bottom:24px;
+
+  backdrop-filter:blur(14px);
+
+  box-shadow:var(--shadow);
+}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  font-size:1.1rem;
+  font-weight:700;
+
+  margin-bottom:22px;
+}
+
+.section-title::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:rgba(255,255,255,.08);
+}
+
+/* ---------- EDUCATION ---------- */
+
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.timeline-item{
+  position:relative;
+  padding-left:28px;
+}
+
+.timeline-item::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:7px;
+
+  width:12px;
+  height:12px;
+
+  border-radius:50%;
+  background:linear-gradient(
+  135deg,
+  var(--primary),
+  var(--primary-2)
+  );
+}
+
+.timeline-item::after{
+  content:'';
+  position:absolute;
+  left:5px;
+  top:24px;
+
+  width:2px;
+  height:calc(100% + 16px);
+
+  background:rgba(255,255,255,.08);
+}
+
+.timeline-item:last-child::after{
+  display:none;
+}
+
+.timeline-item h3{
+  font-size:1rem;
+  margin-bottom:5px;
+}
+
+.timeline-item .school{
+  color:var(--primary-2);
+  font-size:.92rem;
+  margin-bottom:6px;
+}
+
+.timeline-item .date{
+  color:var(--muted);
+  font-size:.82rem;
+  margin-bottom:10px;
+}
+
+.timeline-item p{
+  color:#c6d0dd;
+  font-size:.93rem;
+}
+
+/* ---------- SKILLS ---------- */
+
+.skills{
+  display:grid;
+  gap:16px;
+}
+
+.skill{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.skill-top{
+  display:flex;
+  justify-content:space-between;
+}
+
+.skill-name{
+  font-weight:600;
+}
+
+.skill-value{
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.bar{
+  height:8px;
+  border-radius:999px;
+  overflow:hidden;
+
+  background:rgba(255,255,255,.06);
+}
+
+.bar-fill{
+  height:100%;
+
+  border-radius:999px;
+
+  background:linear-gradient(
+  90deg,
+  var(--primary),
+  var(--primary-2)
+  );
+}
+
+/* ---------- PUBLICATIONS ---------- */
+
+.publications{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.pub{
+  padding:22px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,.03);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  transition:.3s;
+}
+
+.pub:hover{
+  transform:translateY(-3px);
+
+  border-color:rgba(124,140,255,.35);
+}
+
+.pub-year{
+  display:inline-block;
+
+  margin-bottom:12px;
+
+  padding:5px 12px;
+
+  border-radius:999px;
+
+  background:rgba(124,140,255,.12);
+
+  color:var(--primary);
+
+  font-size:.82rem;
+  font-weight:700;
+}
+
+.pub-title{
+  color:white;
+
+  font-size:1rem;
+  font-weight:600;
+
+  line-height:1.5;
+
+  margin-bottom:10px;
+
+  display:block;
+}
+
+.pub-title:hover{
+  color:var(--primary);
+}
+
+.pub-journal{
+  color:var(--muted);
+  font-size:.92rem;
+}
+
+/* ---------- SOCIAL ---------- */
+
+.socials{
+  display:grid;
+  gap:14px;
+}
+
+.social{
+  display:flex;
+  align-items:center;
+  gap:18px;
+
+  padding:16px 18px;
+
+  border-radius:18px;
+
+  border:1px solid rgba(255,255,255,.06);
+
+  background:rgba(255,255,255,.03);
+
+  transition:.25s;
+}
+
+.social:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,255,255,.15);
+}
+
+.social i{
+  width:48px;
+  height:48px;
+
+  border-radius:14px;
+
+  display:grid;
+  place-items:center;
+
+  font-size:1.2rem;
+}
+
+.social .info{
+  display:flex;
+  flex-direction:column;
+}
+
+.social .label{
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+.social .value{
+  color:white;
+  font-weight:600;
+  font-size:.95rem;
+}
+
+/* ---------- BRAND COLORS ---------- */
+
+.website i{
+  background:#1e293b;
+}
+
+.scholar i{
+  background:#4285F4;
+}
+
+.linkedin i{
+  background:#0A66C2;
+}
+
+.instagram i{
+  background:linear-gradient(
+  135deg,
+  #f9ce34,
+  #ee2a7b,
+  #6228d7
+  );
+}
+
+.researchgate i{
+  background:#00CCBB;
+}
+
+.orcid i{
+  background:#A6CE39;
+}
+
+/* ---------- TAGS ---------- */
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tag{
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.04);
+
+  border:1px solid rgba(255,255,255,.06);
+
+  color:#d9e2ef;
+
+  font-size:.85rem;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer{
+  margin-top:40px;
+  text-align:center;
+
+  color:var(--muted);
+
+  font-size:.9rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:1000px){
+
+  .main-grid{
+    grid-template-columns:1fr;
   }
 
-  html { scroll-behavior: smooth; }
+}
 
-  body {
-font-family: 'Inter', sans-serif;
-background: var(--bg);
-color: var(--text);
-line-height: 1.6;
-min-height: 100vh;
+@media(max-width:780px){
+
+  .hero{
+    grid-template-columns:1fr;
   }
 
-  /* ── Background glow ── */
-  body::before {
-content: '';
-position: fixed;
-top: -200px; left: -200px;
-width: 600px; height: 600px;
-background: radial-gradient(circle, rgba(108,143,255,0.12) 0%, transparent 70%);
-pointer-events: none;
-z-index: 0;
-  }
-  body::after {
-content: '';
-position: fixed;
-bottom: -200px; right: -200px;
-width: 500px; height: 500px;
-background: radial-gradient(circle, rgba(167,139,250,0.10) 0%, transparent 70%);
-pointer-events: none;
-z-index: 0;
+  .hero h1{
+    font-size:2.4rem;
   }
 
-  .container {
-max-width: 860px;
-margin: 0 auto;
-padding: 40px 20px 80px;
-position: relative;
-z-index: 1;
+}
+
+@media(max-width:560px){
+
+  .hero{
+    padding:22px;
   }
 
-  /* ── Card ── */
-  .card {
-background: var(--card);
-border: 1px solid var(--border);
-border-radius: var(--radius);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-padding: 28px;
-margin-bottom: 20px;
+  .card{
+    padding:22px;
   }
 
-  /* ── Hero ── */
-  .hero {
-display: flex;
-align-items: center;
-gap: 28px;
-flex-wrap: wrap;
+  .hero-meta{
+    flex-direction:column;
   }
 
-  .avatar {
-width: 100px;
-height: 100px;
-border-radius: 50%;
-border: 3px solid var(--accent);
-object-fit: cover;
-flex-shrink: 0;
-background: linear-gradient(135deg, #6c8fff, #a78bfa);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 28px;
-font-weight: 700;
-color: #fff;
-overflow: hidden;
+  .meta-item{
+    width:100%;
   }
 
-  .avatar img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-border-radius: 50%;
-  }
+}
 
-  .hero-info { flex: 1; min-width: 200px; }
-
-  .hero-name {
-font-size: 26px;
-font-weight: 700;
-background: linear-gradient(135deg, #fff 0%, var(--accent2) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-line-height: 1.2;
-margin-bottom: 6px;
-  }
-
-  .hero-title {
-font-size: 15px;
-color: var(--accent);
-font-weight: 500;
-margin-bottom: 4px;
-  }
-
-  .hero-meta {
-font-size: 13px;
-color: var(--muted);
-margin-bottom: 14px;
-  }
-
-  .hero-meta span { margin-right: 14px; }
-
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-
-  .chip {
-display: inline-flex;
-align-items: center;
-gap: 6px;
-padding: 5px 12px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: 500;
-background: rgba(108,143,255,0.12);
-border: 1px solid rgba(108,143,255,0.25);
-color: var(--accent);
-text-decoration: none;
-transition: background 0.2s;
-  }
-  .chip:hover { background: rgba(108,143,255,0.22); }
-
-  .nav-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-
-  .pill {
-padding: 5px 14px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: 500;
-background: rgba(255,255,255,0.05);
-border: 1px solid var(--border);
-color: var(--muted);
-text-decoration: none;
-transition: all 0.2s;
-  }
-  .pill:hover {
-background: rgba(108,143,255,0.15);
-border-color: var(--accent);
-color: var(--accent);
-  }
-
-  /* ── Section heading ── */
-  .section-title {
-font-size: 13px;
-font-weight: 600;
-text-transform: uppercase;
-letter-spacing: 1.2px;
-color: var(--accent);
-margin-bottom: 18px;
-display: flex;
-align-items: center;
-gap: 10px;
-  }
-  .section-title::after {
-content: '';
-flex: 1;
-height: 1px;
-background: var(--border);
-  }
-
-  /* ── Profile ── */
-  .profile-text {
-font-size: 14px;
-color: var(--muted);
-line-height: 1.8;
-  }
-
-  /* ── Timeline ── */
-  .timeline-item {
-position: relative;
-padding-left: 20px;
-border-left: 2px solid var(--border);
-padding-bottom: 4px;
-  }
-  .timeline-item::before {
-content: '';
-position: absolute;
-left: -5px; top: 6px;
-width: 8px; height: 8px;
-border-radius: 50%;
-background: var(--accent);
-  }
-
-  .edu-degree {
-font-size: 15px;
-font-weight: 600;
-color: var(--text);
-  }
-  .edu-school {
-font-size: 13px;
-color: var(--accent2);
-margin: 2px 0;
-  }
-  .edu-date {
-font-size: 12px;
-color: var(--muted);
-margin-bottom: 10px;
-  }
-  .edu-detail {
-font-size: 13px;
-color: var(--muted);
-line-height: 1.7;
-  }
-  .edu-detail strong { color: var(--text); }
-
-  /* ── Skills ── */
-  .skills-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-gap: 14px;
-  }
-
-  .skill-item { }
-  .skill-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 6px;
-  }
-  .skill-name { font-size: 13px; font-weight: 500; color: var(--text); }
-  .skill-dots { display: flex; gap: 4px; }
-  .dot {
-width: 8px; height: 8px;
-border-radius: 50%;
-background: var(--border);
-  }
-  .dot.filled { background: var(--accent); }
-
-  .skill-bar {
-height: 3px;
-background: var(--border);
-border-radius: 2px;
-overflow: hidden;
-  }
-  .skill-fill {
-height: 100%;
-border-radius: 2px;
-background: linear-gradient(90deg, var(--accent), var(--accent2));
-  }
-
-  /* ── Soft Skills ── */
-  .soft-grid {
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
-  }
-  .soft-tag {
-padding: 5px 14px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: 500;
-background: rgba(167,139,250,0.10);
-border: 1px solid rgba(167,139,250,0.20);
-color: var(--accent2);
-  }
-
-  /* ── Languages ── */
-  .lang-grid {
-display: flex;
-flex-wrap: wrap;
-gap: 20px;
-  }
-  .lang-item {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 8px;
-  }
-  .lang-ring {
-position: relative;
-width: 72px;
-height: 72px;
-  }
-  .lang-ring svg {
-transform: rotate(-90deg);
-  }
-  .lang-ring-bg { stroke: var(--border); }
-  .lang-ring-fill { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset 0.6s; }
-  .lang-pct {
-position: absolute;
-inset: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 12px;
-font-weight: 600;
-color: var(--text);
-  }
-  .lang-name { font-size: 13px; font-weight: 500; color: var(--muted); }
-  .lang-label { font-size: 11px; color: var(--muted); }
-
-  /* ── Courses ── */
-  .courses-list { display: flex; flex-direction: column; gap: 10px; }
-  .course-item {
-display: flex;
-align-items: center;
-gap: 12px;
-padding: 10px 14px;
-background: rgba(255,255,255,0.03);
-border: 1px solid var(--border);
-border-radius: 10px;
-  }
-  .course-icon {
-width: 32px; height: 32px;
-border-radius: 8px;
-background: rgba(108,143,255,0.15);
-display: flex; align-items: center; justify-content: center;
-font-size: 14px;
-flex-shrink: 0;
-  }
-  .course-name { font-size: 13px; font-weight: 500; color: var(--text); }
-  .course-inst { font-size: 11px; color: var(--muted); }
-
-  /* ── Publications ── */
-  .pub-list { display: flex; flex-direction: column; gap: 14px; }
-  .pub-item {
-padding: 14px 16px;
-background: rgba(255,255,255,0.03);
-border: 1px solid var(--border);
-border-radius: 12px;
-transition: border-color 0.2s;
-  }
-  .pub-item:hover { border-color: rgba(108,143,255,0.35); }
-
-  .pub-title {
-font-size: 13px;
-font-weight: 600;
-color: var(--text);
-line-height: 1.5;
-margin-bottom: 5px;
-  }
-  .pub-title a {
-color: inherit;
-text-decoration: none;
-  }
-  .pub-title a:hover { color: var(--accent); }
-
-  .pub-meta {
-font-size: 12px;
-color: var(--muted);
-margin-bottom: 4px;
-  }
-  .pub-journal { color: var(--accent2); font-weight: 500; }
-  .pub-badge {
-display: inline-block;
-padding: 2px 8px;
-border-radius: 10px;
-font-size: 11px;
-font-weight: 500;
-background: rgba(108,143,255,0.12);
-border: 1px solid rgba(108,143,255,0.2);
-color: var(--accent);
-margin-top: 4px;
-  }
-
-  /* ── Links ── */
-  .links-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-gap: 10px;
-  }
-  .link-item {
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 10px 14px;
-background: rgba(255,255,255,0.03);
-border: 1px solid var(--border);
-border-radius: 10px;
-text-decoration: none;
-transition: all 0.2s;
-  }
-  .link-item:hover {
-background: rgba(108,143,255,0.08);
-border-color: rgba(108,143,255,0.3);
-  }
-  .link-icon {
-width: 32px; height: 32px;
-border-radius: 8px;
-background: rgba(108,143,255,0.15);
-display: flex; align-items: center; justify-content: center;
-font-size: 15px;
-flex-shrink: 0;
-  }
-  .link-label { font-size: 12px; font-weight: 600; color: var(--text); }
-  .link-val { font-size: 11px; color: var(--muted); word-break: break-all; }
-
-  /* ── Project ── */
-  .project-item {
-padding: 14px 16px;
-background: rgba(255,255,255,0.03);
-border: 1px solid var(--border);
-border-radius: 12px;
-  }
-  .project-title { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 4px; }
-  .project-meta { font-size: 12px; color: var(--muted); }
-
-  /* ── Hobby ── */
-  .hobby-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-  .hobby-tag {
-padding: 5px 14px;
-border-radius: 20px;
-font-size: 12px;
-background: rgba(255,255,255,0.05);
-border: 1px solid var(--border);
-color: var(--muted);
-  }
-
-  /* ── Reference ── */
-  .ref-item { font-size: 13px; color: var(--muted); line-height: 1.8; }
-  .ref-item strong { color: var(--text); }
-
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-.hero { flex-direction: column; align-items: flex-start; }
-.hero-name { font-size: 22px; }
-.skills-grid { grid-template-columns: 1fr; }
-.links-grid { grid-template-columns: 1fr; }
-  }
-
-  @media print {
-body { background: #fff; color: #111; }
-.card { border: 1px solid #ddd; background: #fff; }
-body::before, body::after { display: none; }
-  }
 </style>
 </head>
+
 <body>
+
 <div class="container">
 
-  <!-- ── HERO ── -->
-  <div class="card">
-<div class="hero">
-<div class="avatar">
-<img
-src="https://cvresume.ir/uploads/avatars/9cf3d53a-ae8f-487f-9344-51442730d59d/398061/medium-avatar-1310667816.jpg"
-alt="Rasool Hamidi Choolabi"
-onerror="this.style.display='none'"
->
-<span style="position:absolute;font-size:28px;font-weight:700;color:#fff;">RH</span>
-</div>
-<div class="hero-info">
-<div class="hero-name">Rasool Hamidi Choolabi</div>
-<div class="hero-title">Psychologist</div>
-<div class="hero-meta">
-<span>📍 Rasht, Iran</span>
-<span>🎂 July 21, 1990</span>
-</div>
-<div class="chips">
-<a class="chip" href="mailto:rasoolhamidi.official@gmail.com">✉ rasoolhamidi.official@gmail.com</a>
-<a class="chip" href="tel:+989213014631">📞 +98 921 301 4631</a>
-</div>
-<nav class="nav-pills">
-<a class="pill" href="#profile">Profile</a>
-<a class="pill" href="#education">Education</a>
-<a class="pill" href="#skills">Skills</a>
-<a class="pill" href="#languages">Languages</a>
-<a class="pill" href="#courses">Courses</a>
-<a class="pill" href="#publications">Publications</a>
-<a class="pill" href="#projects">Projects</a>
-<a class="pill" href="#links">Links</a>
-</nav>
-</div>
-</div>
-  </div>
+  <!-- NAV -->
 
-  <!-- ── PROFILE ── -->
-  <div class="card" id="profile">
-<div class="section-title">Profile</div>
-<p class="profile-text">
-As a psychologist with a Master's degree in General Psychology, I specialize in psychological resilience, emotional and cognitive regulation, and cancer-related mental health. My research focuses on how individuals, especially those with chronic illnesses like cancer, manage emotional and cognitive challenges. Through extensive peer-reviewed publications, I aim to bridge research and practice, developing evidence-based strategies to enhance mental health outcomes. Committed to advancing the field, I work to create innovative solutions that support resilience and well-being in vulnerable populations.
-</p>
-  </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#publications">Publications</a>
+      <a href="#links">Profiles</a>
+    </div>
+  </nav>
 
-  <!-- ── EDUCATION ── -->
-  <div class="card" id="education">
-<div class="section-title">Education</div>
-<div class="timeline-item">
-<div class="edu-degree">Master's Degree — General Psychology</div>
-<div class="edu-school">Ahrar Institute of Technology and Higher Education</div>
-<div class="edu-date">Sep 2018 – Sep 2020</div>
-<div class="edu-detail">
-<strong>Type of Program:</strong> Coursework-based<br>
-<strong>Thesis Title:</strong> Relationship between psychological hardiness with decision-making styles and risky decision-making in female and male students<br>
-<strong>Thesis Grade:</strong> Excellent (18/20)<br>
-<strong>Overall GPA:</strong> 18.55 / 20
-</div>
-</div>
-  </div>
+  <!-- HERO -->
 
-  <!-- ── SKILLS ── -->
-  <div class="card" id="skills">
-<div class="section-title">Skills</div>
-<div class="skills-grid">
+  <section class="hero">
 
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Psychological testing</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
+    <div class="hero-image">
 
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Research methods</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
+      <img
+      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+      alt="Rasool Hamidi"
+      />
 
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Report writing</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
-
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Data analysis</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-</div>
-
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Case conceptualization</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
-
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Program development</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
-
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Public speaking</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-</div>
-
-<div class="skill-item">
-<div class="skill-header">
-<span class="skill-name">Conflict resolution</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
-
-<div class="skill-item" style="grid-column: 1 / -1;">
-<div class="skill-header">
-<span class="skill-name">Advanced computer skills (Word Processing, Data Analysis, Graphic Design, Programming)</span>
-<div class="skill-dots">
-<div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
-</div>
-</div>
-<div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
-</div>
-
-</div>
-
-<div style="margin-top:22px;">
-<div class="section-title">Soft Skills</div>
-<div class="soft-grid">
-<span class="soft-tag">Empathetic</span>
-<span class="soft-tag">Active listener</span>
-<span class="soft-tag">Patient</span>
-<span class="soft-tag">Adaptive</span>
-<span class="soft-tag">Collaborative</span>
-<span class="soft-tag">Analytical</span>
-<span class="soft-tag">Problem solver</span>
-<span class="soft-tag">Compassionate</span>
-<span class="soft-tag">Nonjudgmental</span>
-<span class="soft-tag">Ethical</span>
-<span class="soft-tag">Resilient</span>
-<span class="soft-tag">Open-minded</span>
-<span class="soft-tag">Culturally sensitive</span>
-<span class="soft-tag">Assertive</span>
-<span class="soft-tag">Self-aware</span>
-</div>
-</div>
-  </div>
-
-  
-  <!-- ── LANGUAGES ── -->
-  <div class="card" id="languages">
-<div class="section-title">Languages</div>
-<div class="lang-grid">
-
-<!-- Persian: level 12/12 = 100% -->
-<div class="lang-item">
-<div class="lang-ring">
-<svg width="72" height="72" viewBox="0 0 72 72">
-<circle class="lang-ring-bg" cx="36" cy="36" r="30" fill="none" stroke-width="5"/>
-<circle class="lang-ring-fill" cx="36" cy="36" r="30" fill="none" stroke-width="5"
-stroke-dasharray="188.5"
-stroke-dashoffset="0"/>
-</svg>
-<div class="lang-pct">100%</div>
-</div>
-<div class="lang-name">Persian</div>
-<div class="lang-label">Native</div>
-</div>
-
-<!-- English: level 7/12 = 58% → dashoffset = 188.5*(1-0.58) = 79.2 -->
-<div class="lang-item">
-<div class="lang-ring">
-<svg width="72" height="72" viewBox="0 0 72 72">
-<circle class="lang-ring-bg" cx="36" cy="36" r="30" fill="none" stroke-width="5"/>
-<circle class="lang-ring-fill" cx="36" cy="36" r="30" fill="none" stroke-width="5"
-stroke-dasharray="188.5"
-stroke-dashoffset="79"/>
-</svg>
-<div class="lang-pct">58%</div>
-</div>
-<div class="lang-name">English</div>
-<div class="lang-label">Upper-Intermediate</div>
-</div>
-
-</div>
-  </div>
-
-  <!-- ── COURSES ── -->
-  <div class="card" id="courses">
-<div class="section-title">Certificate &amp; Course</div>
-<div class="courses-list">
-
-<div class="course-item">
-<div class="course-icon">🧠</div>
-<div>
-<div class="course-name">Cognitive Behavioral Therapy (CBT)</div>
-<div class="course-inst"></div>
-</div>
-</div>
-
-<div class="course-item">
-<div class="course-icon">🧘</div>
-<div>
-<div class="course-name">Mindfulness-Based Stress Reduction (MBSR)</div>
-<div class="course-inst"></div>
-</div>
-</div>
-
-<div class="course-item">
-<div class="course-icon">💡</div>
-<div>
-<div class="course-name">Acceptance and Commitment Therapy (ACT)</div>
-<div class="course-inst"></div>
-</div>
-</div>
-
-<div class="course-item">
-<div class="course-icon">🤖</div>
-<div>
-<div class="course-name">Gen AI use in the research workflow</div>
-<div class="course-inst">Elsevier</div>
-</div>
-</div>
-
-<div class="course-item">
-<div class="course-icon">✍️</div>
-<div>
-<div class="course-name">Writing in the Sciences</div>
-<div class="course-inst">COURSERA</div>
-</div>
-</div>
-
-</div>
-  </div>
-
-  <!-- ── PUBLICATIONS ── -->
-<!-- ─── PUBLICATIONS ─────────────────────────────────────── -->
-<section id="publications" class="section">
-  <h2 class="section-title">Publications &amp; Research</h2>
-
-  <div class="pub-list">
-
-    <!-- 1 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2026</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          —
-        </span>
+      <div class="status">
+        Available for Research Collaboration
       </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:YsMSGLbcyi4C"
-           target="_blank" rel="noopener">
-          Healing the Mind to Ease Pain and Fatigue: The Role of Attachment, Mindfulness, and Cognitive Emotion Regulation in Early-Stage Breast Cancer Survivors
-        </a>
-        <span class="pub-journal">Cancer Reports, 9(3), e70471</span>
-      </div>
+
     </div>
 
-    <!-- 2 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2025</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          2
-        </span>
-      </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:zYLM7Y9cAGgC"
-           target="_blank" rel="noopener">
-          The Effect of Acceptance and Commitment Group Therapy (ACT-G) on Emotional Schemas and Feelings of Loneliness in Women with Depression
-        </a>
-        <span class="pub-journal">Current Psychology, 44(4), 2735–2746</span>
-      </div>
-    </div>
+    <div class="hero-content">
 
-    <!-- 3 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2024</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          37
-        </span>
+      <div class="kicker">
+        Psychologist · Researcher
       </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:u-x6o8ySG0sC"
-           target="_blank" rel="noopener">
-          Chemotherapy-Induced Cognitive Impairment in Breast Cancer Survivors: A Systematic Review of Studies from 2000 to 2021
-        </a>
-        <span class="pub-journal">Cancer Reports, 7(2), e1989</span>
-      </div>
-    </div>
 
-    <!-- 4 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2024</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          31
-        </span>
-      </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:9yKSN-GCB0IC"
-           target="_blank" rel="noopener">
-          Advancements and Innovations in Cancer Management: A Comprehensive Perspective
-        </a>
-        <span class="pub-journal">Kindle, 4(1), 1–161</span>
-      </div>
-    </div>
+      <h1>
+        Rasool Hamidi
+      </h1>
 
-    <!-- 5 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2024</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          9
-        </span>
-      </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:IjCSPb-OGe4C"
-           target="_blank" rel="noopener">
-          Mediating Effects of Rumination on Insomnia in Cancer Survivors: Influences of Cancer-Related Fatigue, Fear of Recurrence, and Psychological Distress
-        </a>
-        <span class="pub-journal">Cancer Medicine, 13(18), e70189</span>
-      </div>
-    </div>
+      <p>
+        Researcher in psychological resilience, insomnia, cancer psychology,
+        emotional regulation, and digital mental health interventions.
+        Focused on translating evidence-based psychology into scalable,
+        technology-driven solutions.
+      </p>
 
-    <!-- 6 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2024</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          1
-        </span>
-      </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:d1gkVwhDpl0C"
-           target="_blank" rel="noopener">
-          Childhood Maltreatment and Cyberbullying Victimization/Perpetration: The Mediating Role of Family Function, Resilience, and Anxiety
-        </a>
-        <span class="pub-journal">Psychology Hub, 41(1)</span>
-      </div>
-    </div>
+      <div class="hero-meta">
 
-    <!-- 7 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2024</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          1
-        </span>
-      </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:UeHWp8X0CEIC"
-           target="_blank" rel="noopener">
-          Adolescents' Problematic Internet Use and Psychological Well-Being: The Mediating Role of Sleep Quality and Self-Regulation
-        </a>
-        <span class="pub-journal">International Journal of Emotional Education, 16(1), 190–197</span>
-      </div>
-    </div>
-
-    <!-- 8 -->
-    <div class="pub-item">
-      <div class="pub-meta">
-        <span class="pub-year">2023</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          1
-        </span>
-      </div>
-      <div class="pub-content">
-        <a class="pub-title"
-           href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:u5HHmVD_uO8C"
-           target="_blank" rel="noopener">
-          Prediction of Risky Decision-Making Based on Decision-Making Styles and Psychological Hardiness in Male and Female Students
-        </a>
-        <span class="pub-journal">Journal of Psychology New Ideas, 16(20)</span>
-      </div>
-    </div>
-
-    <!-- 9 -->
-    
-
-
-<!-- 2022 — Conference -->
-      <div class="pub-item">
-       <div class="pub-meta">
-        <span class="pub-year">2022</span>
-        <span class="pub-citations" title="Cited by">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
-          —
-        </span>
-      </div>
-        <div class="pub-title">
-          The Effects of Storytelling on Shyness and Aggression among Primary School Girls: A Quasi-Experimental Approach
+        <div class="meta-item">
+          <i class="fa-solid fa-location-dot"></i>
+          Rasht, Iran
         </div>
-        <div class="pub-meta"><span class="pub-journal">18th International Conference on Psychology, Counseling, and Educational Sciences</span></div>
-        
+
+        <div class="meta-item">
+          <i class="fa-solid fa-envelope"></i>
+          rasoolhamidi.official@gmail.com
+        </div>
+
+        <div class="meta-item">
+          <i class="fa-solid fa-phone"></i>
+          +98 921 301 4631
+        </div>
+
       </div>
-
-
-
-
-   
-  </div><!-- /.pub-list -->
-
-  <a class="scholar-link"
-     href="https://scholar.google.com/citations?hl=en&user=Ko1SKhQAAAAJ"
-     target="_blank" rel="noopener">
-    View full profile on Google Scholar ↗
-  </a>
-
-</section>
-
-
-      
 
     </div>
-  </div>
 
-  <!-- ── PROJECTS ── -->
-  <div class="card" id="projects">
-    <div class="section-title">Projects</div>
-    <div class="project-item">
-      <div class="project-title">
-        Structural Equation Modeling of Insomnia in Cancer Survivors: The Role of Cancer-Related Fatigue, Fear of Recurrence, Psychological Distress, and Rumination
-      </div>
-      <div class="project-meta">Research Project · Cancer Psychology · Quantitative Methods</div>
+  </section>
+
+  <!-- GRID -->
+
+  <div class="main-grid">
+
+    <!-- LEFT -->
+
+    <div>
+
+      <!-- ABOUT -->
+
+      <section class="card" id="about">
+
+        <h2 class="section-title">
+          About
+        </h2>
+
+        <p style="color:var(--muted)">
+          My work focuses on cognitive and emotional processes involved in
+          insomnia, cancer survivorship, psychological distress, and digital
+          interventions such as CBT-I. I aim to build clinically meaningful,
+          scalable, and scientifically rigorous mental health solutions.
+        </p>
+
+      </section>
+
+      <!-- EDUCATION -->
+
+      <section class="card" id="education">
+
+        <h2 class="section-title">
+          Education
+        </h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <h3>
+              Master's Degree — General Psychology
+            </h3>
+
+            <div class="school">
+              Ahrar Institute of Technology and Higher Education
+            </div>
+
+            <div class="date">
+              2018 — 2020
+            </div>
+
+            <p>
+              Thesis focused on psychological hardiness,
+              decision-making styles, and risky decision-making.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- SKILLS -->
+
+      <section class="card" id="skills">
+
+        <h2 class="section-title">
+          Skills
+        </h2>
+
+        <div class="skills">
+
+          <div class="skill">
+            <div class="skill-top">
+              <div class="skill-name">Research Methods</div>
+              <div class="skill-value">95%</div>
+            </div>
+            <div class="bar">
+              <div class="bar-fill" style="width:95%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <div class="skill-name">Psychological Assessment</div>
+              <div class="skill-value">92%</div>
+            </div>
+            <div class="bar">
+              <div class="bar-fill" style="width:92%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <div class="skill-name">Data Analysis</div>
+              <div class="skill-value">85%</div>
+            </div>
+            <div class="bar">
+              <div class="bar-fill" style="width:85%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <div class="skill-name">Digital Mental Health</div>
+              <div class="skill-value">90%</div>
+            </div>
+            <div class="bar">
+              <div class="bar-fill" style="width:90%"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- PUBLICATIONS -->
+
+      <section class="card" id="publications">
+
+        <h2 class="section-title">
+          Publications
+        </h2>
+
+        <div class="publications">
+
+          <div class="pub">
+
+            <span class="pub-year">
+              2026
+            </span>
+
+            <a
+            class="pub-title"
+            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:YsMSGLbcyi4C"
+            target="_blank"
+            >
+              Healing the Mind to Ease Pain and Fatigue
+            </a>
+
+            <div class="pub-journal">
+              Cancer Reports · 2026
+            </div>
+
+          </div>
+
+          <div class="pub">
+
+            <span class="pub-year">
+              2025
+            </span>
+
+            <a
+            class="pub-title"
+            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:zYLM7Y9cAGgC"
+            target="_blank"
+            >
+              ACT Group Therapy on Emotional Schemas and Loneliness
+            </a>
+
+            <div class="pub-journal">
+              Current Psychology · 2025
+            </div>
+
+          </div>
+
+          <div class="pub">
+
+            <span class="pub-year">
+              2024
+            </span>
+
+            <a
+            class="pub-title"
+            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:u-x6o8ySG0sC"
+            target="_blank"
+            >
+              Chemotherapy-Induced Cognitive Impairment
+            </a>
+
+            <div class="pub-journal">
+              Cancer Reports · 2024
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
     </div>
-  </div>
 
-  <!-- ── LINKS & PROFILES ── -->
-<section class="section" id="links">
-  <h2 class="section-title">Links &amp; Profiles</h2>
-  <div class="links-grid">
+    <!-- RIGHT -->
 
-    <!-- Website -->
-    <a href="https://rasoolhamidi.ir" target="_blank" class="link-card">
-      <span class="link-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
-                   15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-      </span>
-      <div class="link-info">
-        <span class="link-label">Website</span>
-        <span class="link-value">rasoolhamidi.ir</span>
-      </div>
-    </a>
+    <aside>
 
-    <!-- ORCiD -->
-    <a href="https://orcid.org/0000-0002-9604-8804" target="_blank" class="link-card">
-      <span class="link-icon orcid-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-          <circle cx="128" cy="128" r="128" fill="#A6CE39"/>
-          <path fill="#fff"
-            d="M86.3 186.2H70.9V79.1h15.4v107.1zm-7.7-119.8c-5.2 0-9.4-4.2-9.4-9.4
-               0-5.2 4.2-9.4 9.4-9.4 5.2 0 9.4 4.2 9.4 9.4 0 5.2-4.2 9.4-9.4 9.4z
-               M185.3 186.2h-15.1v-52c0-12.4-.2-28.4-17.3-28.4-17.3 0-20 13.5-20 27.4
-               v53h-15.1V79.1h14.5v14.6h.2c2-3.8 6.9-7.8 14.2-7.8 15.2 0 18 10 18 23
-               v77.3z"/>
-        </svg>
-      </span>
-      <div class="link-info">
-        <span class="link-label">ORCiD</span>
-        <span class="link-value">0000-0002-9604-8804</span>
-      </div>
-    </a>
+      <!-- SOCIAL -->
 
-    <!-- ResearchGate -->
-    <a href="https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi"
-       target="_blank" class="link-card">
-      <span class="link-icon rg-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <rect width="448" height="512" rx="64" fill="#00CCBB"/>
-          <path fill="#fff"
-            d="M272 180c0-33.1-26.9-60-60-60s-60 26.9-60 60 26.9 60 60 60
-               c14.3 0 27.4-5 37.5-13.3L272 308v-48l-45.3-45.3C233 206.5 236 193.7
-               236 180zm-60 40c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40
-               -17.9 40-40 40zm100-40c0 22.1-17.9 40-40 40v40c44.2 0 80-35.8
-               80-80s-35.8-80-80-80v40c22.1 0 40 17.9 40 40z"/>
-        </svg>
-      </span>
-      <div class="link-info">
-        <span class="link-label">ResearchGate</span>
-        <span class="link-value">Rasool-Hamidi-Choolabi</span>
-      </div>
-    </a>
+      <section class="card" id="links">
 
-    <!-- Google Scholar -->
-    <a href="https://scholar.google.com/citations?user=Ko1SKhQAAAAJ"
-       target="_blank" class="link-card">
-      <span class="link-icon scholar-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <rect width="512" height="512" rx="64" fill="#4285F4"/>
-          <path fill="#fff"
-            d="M256 152L128 256h64v104h128V256h64L256 152z"/>
-          <circle cx="256" cy="360" r="40" fill="#fff"/>
-        </svg>
-      </span>
-      <div class="link-info">
-        <span class="link-label">Google Scholar</span>
-        <span class="link-value">Rasool Hamidi Choolabi</span>
-      </div>
-    </a>
+        <h2 class="section-title">
+          Profiles & Links
+        </h2>
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/rasool-hamidi-choolabi"
-       target="_blank" class="link-card">
-      <span class="link-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <rect width="448" height="512" rx="64" fill="#0A66C2"/>
-          <path fill="#fff"
-            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0
-               83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79
-               54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29
-               0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3
-               c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28
-               142.3V448z"/>
-        </svg>
-      </span>
-      <div class="link-info">
-        <span class="link-label">LinkedIn</span>
-        <span class="link-value">rasool-hamidi-choolabi</span>
-      </div>
-    </a>
+        <div class="socials">
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/rasool.hamidi.ch"
-       target="_blank" class="link-card">
-      <span class="link-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-          <defs>
-            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#FFDC80"/>
-              <stop offset="25%" stop-color="#FCAF45"/>
-              <stop offset="50%" stop-color="#F77737"/>
-              <stop offset="75%" stop-color="#C13584"/>
-              <stop offset="100%" stop-color="#833AB4"/>
-            </linearGradient>
-          </defs>
-          <rect width="448" height="512" rx="64" fill="url(#ig-grad)"/>
-          <path fill="#fff"
-            d="M224 202.66A53.34 53.34 0 1 0 277.34 256 53.38 53.38 0
-               0 0 224 202.66zm124.71-41a54 54 0 0 0-30.41-30.41
-               c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31 6.43
-               a54 54 0 0 0-30.41 30.41c-8.28 21-6.43 71.05-6.43
-               94.33s-1.85 73.27 6.43 94.33a54 54 0 0 0 30.41 30.41
-               c21 8.29 71 6.43 94.31 6.43s73.24 1.93 94.3-6.43
-               a54 54 0 0 0 30.41-30.41c8.35-21 6.43-71.05 6.43-94.33
-               s1.92-73.26-6.43-94.33zm-141.05 188.6a80 80 0 1 1
-               80-80 80.09 80.09 0 0 1-80 80zm83.4-144.87a18.78 18.78
-               0 1 1 18.77-18.78 18.81 18.81 0 0 1-18.77 18.78z"/>
-        </svg>
-      </span>
-      <div class="link-info">
-        <span class="link-label">Instagram</span>
-        <span class="link-value">@rasool.hamidi.ch</span>
-      </div>
-    </a>
+          <a
+          href="https://rasoolhamidi.ir"
+          class="social website"
+          target="_blank"
+          >
+
+            <i class="fa-solid fa-globe"></i>
+
+            <div class="info">
+              <span class="label">Website</span>
+              <span class="value">rasoolhamidi.ir</span>
+            </div>
+
+          </a>
+
+          <a
+          href="https://scholar.google.com/citations?user=Ko1SKhQAAAAJ"
+          class="social scholar"
+          target="_blank"
+          >
+
+            <i class="fa-brands fa-google"></i>
+
+            <div class="info">
+              <span class="label">Google Scholar</span>
+              <span class="value">Citations & Research</span>
+            </div>
+
+          </a>
+
+          <a
+          href="https://www.linkedin.com/in/rasool-hamidi-choolabi"
+          class="social linkedin"
+          target="_blank"
+          >
+
+            <i class="fa-brands fa-linkedin-in"></i>
+
+            <div class="info">
+              <span class="label">LinkedIn</span>
+              <span class="value">Professional Network</span>
+            </div>
+
+          </a>
+
+          <a
+          href="https://www.instagram.com/rasool.hamidi.ch"
+          class="social instagram"
+          target="_blank"
+          >
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <div class="info">
+              <span class="label">Instagram</span>
+              <span class="value">@rasool.hamidi.ch</span>
+            </div>
+
+          </a>
+
+          <a
+          href="https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi"
+          class="social researchgate"
+          target="_blank"
+          >
+
+            <i class="fa-brands fa-researchgate"></i>
+
+            <div class="info">
+              <span class="label">ResearchGate</span>
+              <span class="value">Academic Profile</span>
+            </div>
+
+          </a>
+
+          <a
+          href="https://orcid.org/0000-0002-9604-8804"
+          class="social orcid"
+          target="_blank"
+          >
+
+            <i class="fa-brands fa-orcid"></i>
+
+            <div class="info">
+              <span class="label">ORCID</span>
+              <span class="value">0000-0002-9604-8804</span>
+            </div>
+
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- INTERESTS -->
+
+      <section class="card">
+
+        <h2 class="section-title">
+          Interests
+        </h2>
+
+        <div class="tags">
+
+          <div class="tag">CBT-I</div>
+          <div class="tag">Cancer Psychology</div>
+          <div class="tag">Rumination</div>
+          <div class="tag">Digital Health</div>
+          <div class="tag">Sleep Research</div>
+          <div class="tag">AI in Mental Health</div>
+
+        </div>
+
+      </section>
+
+    </aside>
 
   </div>
-</section>
 
+  <!-- FOOTER -->
 
-  <!-- ── HOBBY ── -->
-  <div class="card">
-    <div class="section-title">Hobbies &amp; Interests</div>
-    <div class="hobby-grid">
-      <span class="hobby-tag">📖 Reading</span>
-      <span class="hobby-tag">✍️ Writing</span>
-      <span class="hobby-tag">🎵 Music</span>
-      <span class="hobby-tag">🏃 Sports</span>
-      <span class="hobby-tag">🧩 Problem Solving</span>
-      <span class="hobby-tag">🌿 Nature</span>
-    </div>
+  <div class="footer">
+    © 2026 Rasool Hamidi — Academic Portfolio
   </div>
-
-  
 
 </div>
+
 </body>
-</html></parameter>
-</invoke>
-</function_calls>
+</html>
