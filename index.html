@@ -19,6 +19,79 @@
 --text: #e8eaf0;
 --muted: #8b92a5;
 --radius: 16px;
+
+
+   /* ── Links & Profiles ── */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+
+.link-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99,102,241,.15);
+}
+
+.link-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.05);
+}
+
+.link-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* plain globe icon gets accent color */
+.link-icon:not(.orcid-icon):not(.rg-icon):not(.scholar-icon) svg {
+  color: var(--accent);
+}
+
+.link-info {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+  min-width: 0;
+}
+
+.link-label {
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+
+.link-value {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
   }
 
   html { scroll-behavior: smooth; }
