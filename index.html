@@ -83,88 +83,34 @@
 .scholar-link:hover { text-decoration: underline; }
 
 
-   /* ── Links & Profiles ── */
+.links-section { margin: 2rem 0; }
 .links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
-
 .link-card {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--text);
-  transition: border-color .2s, transform .2s, box-shadow .2s;
-}
-
-.link-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99,102,241,.15);
-}
-
-.link-icon {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: rgba(255,255,255,.05);
-}
-
-.link-icon svg {
-  width: 32px;
-  height: 32px;
-}
-
-/* plain globe icon gets accent color */
-.link-icon:not(.orcid-icon):not(.rg-icon):not(.scholar-icon) svg {
-  color: var(--accent);
-}
-
-.link-info {
-  display: flex;
   flex-direction: column;
-  gap: .15rem;
-  min-width: 0;
+  align-items: center;
+  width: 100px;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s;
 }
-
-.link-label {
-  font-size: .7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  color: var(--muted);
+.link-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+.link-card img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 0.4rem;
 }
+.link-name { font-weight: 600; font-size: 0.8rem; }
+.link-user { font-size: 0.7rem; color: #666; text-align: center; }
 
-.link-value {
-  font-size: .85rem;
-  font-weight: 500;
-  color: var(--text);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-font-family: 'Inter', sans-serif;
-background: var(--bg);
-color: var(--text);
-line-height: 1.6;
-min-height: 100vh;
-  }
 
   /* ── Background glow ── */
   body::before {
