@@ -931,53 +931,142 @@ stroke-dashoffset="79"/>
     </div>
   </div>
 
-  <!-- ── LINKS ── -->
-  <div class="card" id="links">
-    <div class="section-title">Links &amp; Profiles</div>
-    <div class="links-grid">
+  <!-- ── LINKS & PROFILES ── -->
+<section class="section" id="links">
+  <h2 class="section-title">Links &amp; Profiles</h2>
+  <div class="links-grid">
 
-      <a class="link-item" href="https://rasoolhamidi.ir" target="_blank" rel="noopener">
-        <div class="link-icon">🌐</div>
-        <div>
-          <div class="link-label">Website</div>
-          <div class="link-val">rasoolhamidi.ir</div>
-        </div>
-      </a>
+    <!-- Website -->
+    <a href="https://rasoolhamidi.ir" target="_blank" class="link-card">
+      <span class="link-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
+                   15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </span>
+      <div class="link-info">
+        <span class="link-label">Website</span>
+        <span class="link-value">rasoolhamidi.ir</span>
+      </div>
+    </a>
 
-      <a class="link-item" href="https://orcid.org/0009-0007-5810-3891" target="_blank" rel="noopener">
-        <div class="link-icon">🔬</div>
-        <div>
-          <div class="link-label">ORCiD</div>
-          <div class="link-val">0009-0007-5810-3891</div>
-        </div>
-      </a>
+    <!-- ORCiD -->
+    <a href="https://orcid.org/0000-0002-9604-8804" target="_blank" class="link-card">
+      <span class="link-icon orcid-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+          <circle cx="128" cy="128" r="128" fill="#A6CE39"/>
+          <path fill="#fff"
+            d="M86.3 186.2H70.9V79.1h15.4v107.1zm-7.7-119.8c-5.2 0-9.4-4.2-9.4-9.4
+               0-5.2 4.2-9.4 9.4-9.4 5.2 0 9.4 4.2 9.4 9.4 0 5.2-4.2 9.4-9.4 9.4z
+               M185.3 186.2h-15.1v-52c0-12.4-.2-28.4-17.3-28.4-17.3 0-20 13.5-20 27.4
+               v53h-15.1V79.1h14.5v14.6h.2c2-3.8 6.9-7.8 14.2-7.8 15.2 0 18 10 18 23
+               v77.3z"/>
+        </svg>
+      </span>
+      <div class="link-info">
+        <span class="link-label">ORCiD</span>
+        <span class="link-value">0000-0002-9604-8804</span>
+      </div>
+    </a>
 
-      <a class="link-item" href="https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi" target="_blank" rel="noopener">
-        <div class="link-icon">📄</div>
-        <div>
-          <div class="link-label">ResearchGate</div>
-          <div class="link-val">Rasool-Hamidi-Choolabi</div>
-        </div>
-      </a>
+    <!-- ResearchGate -->
+    <a href="https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi"
+       target="_blank" class="link-card">
+      <span class="link-icon rg-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <rect width="448" height="512" rx="64" fill="#00CCBB"/>
+          <path fill="#fff"
+            d="M272 180c0-33.1-26.9-60-60-60s-60 26.9-60 60 26.9 60 60 60
+               c14.3 0 27.4-5 37.5-13.3L272 308v-48l-45.3-45.3C233 206.5 236 193.7
+               236 180zm-60 40c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40
+               -17.9 40-40 40zm100-40c0 22.1-17.9 40-40 40v40c44.2 0 80-35.8
+               80-80s-35.8-80-80-80v40c22.1 0 40 17.9 40 40z"/>
+        </svg>
+      </span>
+      <div class="link-info">
+        <span class="link-label">ResearchGate</span>
+        <span class="link-value">Rasool-Hamidi-Choolabi</span>
+      </div>
+    </a>
 
-      <a class="link-item" href="https://www.linkedin.com/in/rasool-hamidi-choolabi" target="_blank" rel="noopener">
-        <div class="link-icon">💼</div>
-        <div>
-          <div class="link-label">LinkedIn</div>
-          <div class="link-val">rasool-hamidi-choolabi</div>
-        </div>
-      </a>
+    <!-- Google Scholar -->
+    <a href="https://scholar.google.com/citations?user=Ko1SKhQAAAAJ"
+       target="_blank" class="link-card">
+      <span class="link-icon scholar-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <rect width="512" height="512" rx="64" fill="#4285F4"/>
+          <path fill="#fff"
+            d="M256 152L128 256h64v104h128V256h64L256 152z"/>
+          <circle cx="256" cy="360" r="40" fill="#fff"/>
+        </svg>
+      </span>
+      <div class="link-info">
+        <span class="link-label">Google Scholar</span>
+        <span class="link-value">Rasool Hamidi Choolabi</span>
+      </div>
+    </a>
 
-      <a class="link-item" href="https://www.instagram.com/rasool.hamidi.ch" target="_blank" rel="noopener">
-        <div class="link-icon">📸</div>
-        <div>
-          <div class="link-label">Instagram</div>
-          <div class="link-val">@rasool.hamidi.ch</div>
-        </div>
-      </a>
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/rasool-hamidi-choolabi"
+       target="_blank" class="link-card">
+      <span class="link-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <rect width="448" height="512" rx="64" fill="#0A66C2"/>
+          <path fill="#fff"
+            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0
+               83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79
+               54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29
+               0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3
+               c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28
+               142.3V448z"/>
+        </svg>
+      </span>
+      <div class="link-info">
+        <span class="link-label">LinkedIn</span>
+        <span class="link-value">rasool-hamidi-choolabi</span>
+      </div>
+    </a>
 
-    </div>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/rasool.hamidi.ch"
+       target="_blank" class="link-card">
+      <span class="link-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <defs>
+            <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FFDC80"/>
+              <stop offset="25%" stop-color="#FCAF45"/>
+              <stop offset="50%" stop-color="#F77737"/>
+              <stop offset="75%" stop-color="#C13584"/>
+              <stop offset="100%" stop-color="#833AB4"/>
+            </linearGradient>
+          </defs>
+          <rect width="448" height="512" rx="64" fill="url(#ig-grad)"/>
+          <path fill="#fff"
+            d="M224 202.66A53.34 53.34 0 1 0 277.34 256 53.38 53.38 0
+               0 0 224 202.66zm124.71-41a54 54 0 0 0-30.41-30.41
+               c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31 6.43
+               a54 54 0 0 0-30.41 30.41c-8.28 21-6.43 71.05-6.43
+               94.33s-1.85 73.27 6.43 94.33a54 54 0 0 0 30.41 30.41
+               c21 8.29 71 6.43 94.31 6.43s73.24 1.93 94.3-6.43
+               a54 54 0 0 0 30.41-30.41c8.35-21 6.43-71.05 6.43-94.33
+               s1.92-73.26-6.43-94.33zm-141.05 188.6a80 80 0 1 1
+               80-80 80.09 80.09 0 0 1-80 80zm83.4-144.87a18.78 18.78
+               0 1 1 18.77-18.78 18.81 18.81 0 0 1-18.77 18.78z"/>
+        </svg>
+      </span>
+      <div class="link-info">
+        <span class="link-label">Instagram</span>
+        <span class="link-value">@rasool.hamidi.ch</span>
+      </div>
+    </a>
+
   </div>
+</section>
+
 
   <!-- ── HOBBY ── -->
   <div class="card">
