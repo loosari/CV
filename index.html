@@ -1,1018 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Rasool Hamidi — Psychologist & Researcher</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Rasool Hamidi | Psychologist</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
-<style>
+  <!-- ICONS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
 
-:root{
-  --bg:#0b1020;
-  --bg-soft:#121a30;
-  --card:rgba(255,255,255,.05);
-  --border:rgba(255,255,255,.08);
+  <link rel="stylesheet" href="style.css">
 
-  --text:#f5f7fb;
-  --muted:#94a3b8;
-
-  --primary:#7c8cff;
-  --primary-2:#b48cff;
-
-  --shadow:0 10px 35px rgba(0,0,0,.35);
-
-  --radius:22px;
-
-  --max-width:1150px;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:
-  radial-gradient(circle at top left, rgba(124,140,255,.18), transparent 30%),
-  radial-gradient(circle at bottom right, rgba(180,140,255,.12), transparent 30%),
-  var(--bg);
-
-  color:var(--text);
-  min-height:100vh;
-  line-height:1.7;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-a{
-  text-decoration:none;
-}
-
-.container{
-  width:min(100%, var(--max-width));
-  margin:auto;
-  padding:32px 20px 80px;
-}
-
-/* ---------- NAV ---------- */
-
-.nav{
-  position:sticky;
-  top:15px;
-  z-index:1000;
-
-  display:flex;
-  justify-content:center;
-
-  margin-bottom:28px;
-}
-
-.nav-inner{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-
-  padding:12px 18px;
-
-  border:1px solid var(--border);
-  background:rgba(10,14,25,.65);
-
-  backdrop-filter:blur(14px);
-
-  border-radius:999px;
-}
-
-.nav a{
-  color:var(--muted);
-  font-size:.9rem;
-  font-weight:500;
-
-  transition:.25s;
-}
-
-.nav a:hover{
-  color:white;
-}
-
-/* ---------- HERO ---------- */
-
-.hero{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:34px;
-
-  padding:34px;
-
-  border:1px solid var(--border);
-  background:var(--card);
-
-  border-radius:var(--radius);
-
-  backdrop-filter:blur(14px);
-
-  box-shadow:var(--shadow);
-
-  margin-bottom:28px;
-}
-
-.hero-image{
-  position:relative;
-}
-
-.hero-image img{
-  width:100%;
-  aspect-ratio:1/1;
-
-  object-fit:cover;
-
-  border-radius:24px;
-
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.status{
-  position:absolute;
-  bottom:18px;
-  left:18px;
-
-  padding:8px 14px;
-
-  border-radius:999px;
-
-  background:rgba(15,23,42,.75);
-
-  backdrop-filter:blur(10px);
-
-  border:1px solid rgba(255,255,255,.08);
-
-  font-size:.85rem;
-}
-
-.hero-content{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-
-.kicker{
-  color:var(--primary);
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  font-size:.78rem;
-
-  margin-bottom:10px;
-}
-
-.hero h1{
-  font-size:3.1rem;
-  line-height:1.05;
-
-  margin-bottom:18px;
-}
-
-.hero p{
-  color:var(--muted);
-  max-width:760px;
-  margin-bottom:28px;
-}
-
-.hero-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-}
-
-.meta-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-
-  padding:12px 16px;
-
-  border-radius:14px;
-
-  background:rgba(255,255,255,.04);
-
-  border:1px solid rgba(255,255,255,.06);
-
-  color:#dbe4f0;
-
-  font-size:.92rem;
-}
-
-/* ---------- GRID ---------- */
-
-.main-grid{
-  display:grid;
-  grid-template-columns:1fr 370px;
-  gap:28px;
-}
-
-/* ---------- CARD ---------- */
-
-.card{
-  background:var(--card);
-
-  border:1px solid var(--border);
-
-  border-radius:var(--radius);
-
-  padding:28px;
-
-  margin-bottom:24px;
-
-  backdrop-filter:blur(14px);
-
-  box-shadow:var(--shadow);
-}
-
-.section-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-
-  font-size:1.1rem;
-  font-weight:700;
-
-  margin-bottom:22px;
-}
-
-.section-title::after{
-  content:'';
-  flex:1;
-  height:1px;
-  background:rgba(255,255,255,.08);
-}
-
-/* ---------- EDUCATION ---------- */
-
-.timeline{
-  display:flex;
-  flex-direction:column;
-  gap:24px;
-}
-
-.timeline-item{
-  position:relative;
-  padding-left:28px;
-}
-
-.timeline-item::before{
-  content:'';
-  position:absolute;
-  left:0;
-  top:7px;
-
-  width:12px;
-  height:12px;
-
-  border-radius:50%;
-  background:linear-gradient(
-  135deg,
-  var(--primary),
-  var(--primary-2)
-  );
-}
-
-.timeline-item::after{
-  content:'';
-  position:absolute;
-  left:5px;
-  top:24px;
-
-  width:2px;
-  height:calc(100% + 16px);
-
-  background:rgba(255,255,255,.08);
-}
-
-.timeline-item:last-child::after{
-  display:none;
-}
-
-.timeline-item h3{
-  font-size:1rem;
-  margin-bottom:5px;
-}
-
-.timeline-item .school{
-  color:var(--primary-2);
-  font-size:.92rem;
-  margin-bottom:6px;
-}
-
-.timeline-item .date{
-  color:var(--muted);
-  font-size:.82rem;
-  margin-bottom:10px;
-}
-
-.timeline-item p{
-  color:#c6d0dd;
-  font-size:.93rem;
-}
-
-/* ---------- SKILLS ---------- */
-
-.skills{
-  display:grid;
-  gap:16px;
-}
-
-.skill{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.skill-top{
-  display:flex;
-  justify-content:space-between;
-}
-
-.skill-name{
-  font-weight:600;
-}
-
-.skill-value{
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-.bar{
-  height:8px;
-  border-radius:999px;
-  overflow:hidden;
-
-  background:rgba(255,255,255,.06);
-}
-
-.bar-fill{
-  height:100%;
-
-  border-radius:999px;
-
-  background:linear-gradient(
-  90deg,
-  var(--primary),
-  var(--primary-2)
-  );
-}
-
-/* ---------- PUBLICATIONS ---------- */
-
-.publications{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
-.pub{
-  padding:22px;
-
-  border-radius:18px;
-
-  background:rgba(255,255,255,.03);
-
-  border:1px solid rgba(255,255,255,.06);
-
-  transition:.3s;
-}
-
-.pub:hover{
-  transform:translateY(-3px);
-
-  border-color:rgba(124,140,255,.35);
-}
-
-.pub-year{
-  display:inline-block;
-
-  margin-bottom:12px;
-
-  padding:5px 12px;
-
-  border-radius:999px;
-
-  background:rgba(124,140,255,.12);
-
-  color:var(--primary);
-
-  font-size:.82rem;
-  font-weight:700;
-}
-
-.pub-title{
-  color:white;
-
-  font-size:1rem;
-  font-weight:600;
-
-  line-height:1.5;
-
-  margin-bottom:10px;
-
-  display:block;
-}
-
-.pub-title:hover{
-  color:var(--primary);
-}
-
-.pub-journal{
-  color:var(--muted);
-  font-size:.92rem;
-}
-
-/* ---------- SOCIAL ---------- */
-
-.socials{
-  display:grid;
-  gap:14px;
-}
-
-.social{
-  display:flex;
-  align-items:center;
-  gap:18px;
-
-  padding:16px 18px;
-
-  border-radius:18px;
-
-  border:1px solid rgba(255,255,255,.06);
-
-  background:rgba(255,255,255,.03);
-
-  transition:.25s;
-}
-
-.social:hover{
-  transform:translateY(-3px);
-  border-color:rgba(255,255,255,.15);
-}
-
-.social i{
-  width:48px;
-  height:48px;
-
-  border-radius:14px;
-
-  display:grid;
-  place-items:center;
-
-  font-size:1.2rem;
-}
-
-.social .info{
-  display:flex;
-  flex-direction:column;
-}
-
-.social .label{
-  font-size:.8rem;
-  color:var(--muted);
-}
-
-.social .value{
-  color:white;
-  font-weight:600;
-  font-size:.95rem;
-}
-
-/* ---------- BRAND COLORS ---------- */
-
-.website i{
-  background:#1e293b;
-}
-
-.scholar i{
-  background:#4285F4;
-}
-
-.linkedin i{
-  background:#0A66C2;
-}
-
-.instagram i{
-  background:linear-gradient(
-  135deg,
-  #f9ce34,
-  #ee2a7b,
-  #6228d7
-  );
-}
-
-.researchgate i{
-  background:#00CCBB;
-}
-
-.orcid i{
-  background:#A6CE39;
-}
-
-/* ---------- TAGS ---------- */
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.tag{
-  padding:8px 14px;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.04);
-
-  border:1px solid rgba(255,255,255,.06);
-
-  color:#d9e2ef;
-
-  font-size:.85rem;
-}
-
-/* ---------- FOOTER ---------- */
-
-.footer{
-  margin-top:40px;
-  text-align:center;
-
-  color:var(--muted);
-
-  font-size:.9rem;
-}
-
-/* ---------- RESPONSIVE ---------- */
-
-@media(max-width:1000px){
-
-  .main-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-@media(max-width:780px){
-
-  .hero{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:2.4rem;
-  }
-
-}
-
-@media(max-width:560px){
-
-  .hero{
-    padding:22px;
-  }
-
-  .card{
-    padding:22px;
-  }
-
-  .hero-meta{
-    flex-direction:column;
-  }
-
-  .meta-item{
-    width:100%;
-  }
-
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="container">
-
   <!-- NAV -->
 
   <nav class="nav">
+
     <div class="nav-inner">
+
       <a href="#about">About</a>
       <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
       <a href="#publications">Publications</a>
-      <a href="#links">Profiles</a>
+      <a href="#profiles">Profiles</a>
+
     </div>
+
   </nav>
 
-  <!-- HERO -->
+  <!-- MAIN -->
 
-  <section class="hero">
+  <main class="container">
 
-    <div class="hero-image">
+    <!-- HERO -->
 
-      <img
-      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
-      alt="Rasool Hamidi"
-      />
+    <section class="hero">
 
-      <div class="status">
-        Available for Research Collaboration
-      </div>
+      <div class="hero-image">
 
-    </div>
-
-    <div class="hero-content">
-
-      <div class="kicker">
-        Psychologist · Researcher
-      </div>
-
-      <h1>
-        Rasool Hamidi
-      </h1>
-
-      <p>
-        Researcher in psychological resilience, insomnia, cancer psychology,
-        emotional regulation, and digital mental health interventions.
-        Focused on translating evidence-based psychology into scalable,
-        technology-driven solutions.
-      </p>
-
-      <div class="hero-meta">
-
-        <div class="meta-item">
-          <i class="fa-solid fa-location-dot"></i>
-          Rasht, Iran
-        </div>
-
-        <div class="meta-item">
-          <i class="fa-solid fa-envelope"></i>
-          rasoolhamidi.official@gmail.com
-        </div>
-
-        <div class="meta-item">
-          <i class="fa-solid fa-phone"></i>
-          +98 921 301 4631
-        </div>
+        <img
+          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+          alt="Rasool Hamidi"
+        >
 
       </div>
 
-    </div>
+      <div class="hero-content">
 
-  </section>
+        <span class="hero-kicker">
+          Psychologist · Researcher
+        </span>
 
-  <!-- GRID -->
+        <h1>
+          Rasool Hamidi
+        </h1>
 
-  <div class="main-grid">
-
-    <!-- LEFT -->
-
-    <div>
-
-      <!-- ABOUT -->
-
-      <section class="card" id="about">
-
-        <h2 class="section-title">
-          About
-        </h2>
-
-        <p style="color:var(--muted)">
-          My work focuses on cognitive and emotional processes involved in
-          insomnia, cancer survivorship, psychological distress, and digital
-          interventions such as CBT-I. I aim to build clinically meaningful,
-          scalable, and scientifically rigorous mental health solutions.
+        <p>
+          Researcher focused on insomnia, cancer psychology,
+          emotional regulation, and digital mental health interventions.
         </p>
 
-      </section>
+        <div class="hero-meta">
 
-      <!-- EDUCATION -->
+          <div class="meta-item">
+            <i class="fa-solid fa-location-dot"></i>
+            Rasht, Iran
+          </div>
 
-      <section class="card" id="education">
+          <div class="meta-item">
+            <i class="fa-solid fa-envelope"></i>
+            rasoolhamidi.official@gmail.com
+          </div>
 
-        <h2 class="section-title">
-          Education
-        </h2>
-
-        <div class="timeline">
-
-          <div class="timeline-item">
-
-            <h3>
-              Master's Degree — General Psychology
-            </h3>
-
-            <div class="school">
-              Ahrar Institute of Technology and Higher Education
-            </div>
-
-            <div class="date">
-              2018 — 2020
-            </div>
-
-            <p>
-              Thesis focused on psychological hardiness,
-              decision-making styles, and risky decision-making.
-            </p>
-
+          <div class="meta-item">
+            <i class="fa-solid fa-phone"></i>
+            +98 921 301 4631
           </div>
 
         </div>
 
-      </section>
+      </div>
 
-      <!-- SKILLS -->
+    </section>
 
-      <section class="card" id="skills">
+    <!-- GRID -->
 
-        <h2 class="section-title">
-          Skills
-        </h2>
+    <div class="grid">
 
-        <div class="skills">
+      <!-- LEFT -->
 
-          <div class="skill">
-            <div class="skill-top">
-              <div class="skill-name">Research Methods</div>
-              <div class="skill-value">95%</div>
+      <div>
+
+        <!-- ABOUT -->
+
+        <section class="card" id="about">
+
+          <h2 class="section-title">
+            About
+          </h2>
+
+          <p class="text-muted">
+            My work focuses on psychological resilience,
+            CBT-I, rumination, cancer survivorship,
+            and scalable digital mental health interventions.
+          </p>
+
+        </section>
+
+        <!-- EDUCATION -->
+
+        <section class="card" id="education">
+
+          <h2 class="section-title">
+            Education
+          </h2>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+
+              <h3>
+                Master's Degree — General Psychology
+              </h3>
+
+              <span class="timeline-school">
+                Ahrar Institute of Technology
+              </span>
+
+              <span class="timeline-date">
+                2018 — 2020
+              </span>
+
+              <p>
+                Thesis on psychological hardiness,
+                decision-making styles,
+                and risky decision-making.
+              </p>
+
             </div>
-            <div class="bar">
-              <div class="bar-fill" style="width:95%"></div>
-            </div>
+
           </div>
 
-          <div class="skill">
-            <div class="skill-top">
-              <div class="skill-name">Psychological Assessment</div>
-              <div class="skill-value">92%</div>
-            </div>
-            <div class="bar">
-              <div class="bar-fill" style="width:92%"></div>
-            </div>
+        </section>
+
+        <!-- PUBLICATIONS -->
+
+        <section class="card" id="publications">
+
+          <div class="section-head">
+
+            <h2 class="section-title">
+              Publications
+            </h2>
+
+            <button id="reload-btn">
+              Refresh
+            </button>
+
           </div>
 
-          <div class="skill">
-            <div class="skill-top">
-              <div class="skill-name">Data Analysis</div>
-              <div class="skill-value">85%</div>
+          <div id="publications-container">
+
+            <div class="loading">
+              Loading publications...
             </div>
-            <div class="bar">
-              <div class="bar-fill" style="width:85%"></div>
-            </div>
+
           </div>
 
-          <div class="skill">
-            <div class="skill-top">
-              <div class="skill-name">Digital Mental Health</div>
-              <div class="skill-value">90%</div>
-            </div>
-            <div class="bar">
-              <div class="bar-fill" style="width:90%"></div>
-            </div>
-          </div>
+        </section>
 
-        </div>
+      </div>
 
-      </section>
+      <!-- RIGHT -->
 
-      <!-- PUBLICATIONS -->
+      <aside>
 
-      <section class="card" id="publications">
+        <!-- SOCIAL -->
 
-        <h2 class="section-title">
-          Publications
-        </h2>
+        <section class="card" id="profiles">
 
-        <div class="publications">
+          <h2 class="section-title">
+            Profiles
+          </h2>
 
-          <div class="pub">
-
-            <span class="pub-year">
-              2026
-            </span>
+          <div class="socials">
 
             <a
-            class="pub-title"
-            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:YsMSGLbcyi4C"
-            target="_blank"
+              href="https://scholar.google.com/citations?user=Ko1SKhQAAAAJ"
+              target="_blank"
+              class="social scholar"
             >
-              Healing the Mind to Ease Pain and Fatigue
+              <i class="fa-brands fa-google"></i>
+
+              <div>
+                <span class="social-label">
+                  Google Scholar
+                </span>
+
+                <span class="social-value">
+                  Citations & Research
+                </span>
+              </div>
             </a>
-
-            <div class="pub-journal">
-              Cancer Reports · 2026
-            </div>
-
-          </div>
-
-          <div class="pub">
-
-            <span class="pub-year">
-              2025
-            </span>
 
             <a
-            class="pub-title"
-            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:zYLM7Y9cAGgC"
-            target="_blank"
+              href="https://orcid.org/0000-0002-9604-8804"
+              target="_blank"
+              class="social orcid"
             >
-              ACT Group Therapy on Emotional Schemas and Loneliness
+              <i class="fa-brands fa-orcid"></i>
+
+              <div>
+                <span class="social-label">
+                  ORCID
+                </span>
+
+                <span class="social-value">
+                  0000-0002-9604-8804
+                </span>
+              </div>
             </a>
-
-            <div class="pub-journal">
-              Current Psychology · 2025
-            </div>
-
-          </div>
-
-          <div class="pub">
-
-            <span class="pub-year">
-              2024
-            </span>
 
             <a
-            class="pub-title"
-            href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Ko1SKhQAAAAJ&citation_for_view=Ko1SKhQAAAAJ:u-x6o8ySG0sC"
-            target="_blank"
+              href="https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi"
+              target="_blank"
+              class="social rg"
             >
-              Chemotherapy-Induced Cognitive Impairment
+              <i class="fa-brands fa-researchgate"></i>
+
+              <div>
+                <span class="social-label">
+                  ResearchGate
+                </span>
+
+                <span class="social-value">
+                  Academic Profile
+                </span>
+              </div>
             </a>
 
-            <div class="pub-journal">
-              Cancer Reports · 2024
-            </div>
+            <a
+              href="https://www.linkedin.com/in/rasool-hamidi-choolabi"
+              target="_blank"
+              class="social linkedin"
+            >
+              <i class="fa-brands fa-linkedin-in"></i>
+
+              <div>
+                <span class="social-label">
+                  LinkedIn
+                </span>
+
+                <span class="social-value">
+                  Professional Network
+                </span>
+              </div>
+            </a>
+
+            <a
+              href="https://www.instagram.com/rasool.hamidi.ch"
+              target="_blank"
+              class="social instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+
+              <div>
+                <span class="social-label">
+                  Instagram
+                </span>
+
+                <span class="social-value">
+                  @rasool.hamidi.ch
+                </span>
+              </div>
+            </a>
 
           </div>
 
-        </div>
+        </section>
 
-      </section>
+      </aside>
 
     </div>
 
-    <!-- RIGHT -->
+  </main>
 
-    <aside>
-
-      <!-- SOCIAL -->
-
-      <section class="card" id="links">
-
-        <h2 class="section-title">
-          Profiles & Links
-        </h2>
-
-        <div class="socials">
-
-          <a
-          href="https://rasoolhamidi.ir"
-          class="social website"
-          target="_blank"
-          >
-
-            <i class="fa-solid fa-globe"></i>
-
-            <div class="info">
-              <span class="label">Website</span>
-              <span class="value">rasoolhamidi.ir</span>
-            </div>
-
-          </a>
-
-          <a
-          href="https://scholar.google.com/citations?user=Ko1SKhQAAAAJ"
-          class="social scholar"
-          target="_blank"
-          >
-
-            <i class="fa-brands fa-google"></i>
-
-            <div class="info">
-              <span class="label">Google Scholar</span>
-              <span class="value">Citations & Research</span>
-            </div>
-
-          </a>
-
-          <a
-          href="https://www.linkedin.com/in/rasool-hamidi-choolabi"
-          class="social linkedin"
-          target="_blank"
-          >
-
-            <i class="fa-brands fa-linkedin-in"></i>
-
-            <div class="info">
-              <span class="label">LinkedIn</span>
-              <span class="value">Professional Network</span>
-            </div>
-
-          </a>
-
-          <a
-          href="https://www.instagram.com/rasool.hamidi.ch"
-          class="social instagram"
-          target="_blank"
-          >
-
-            <i class="fa-brands fa-instagram"></i>
-
-            <div class="info">
-              <span class="label">Instagram</span>
-              <span class="value">@rasool.hamidi.ch</span>
-            </div>
-
-          </a>
-
-          <a
-          href="https://www.researchgate.net/profile/Rasool-Hamidi-Choolabi"
-          class="social researchgate"
-          target="_blank"
-          >
-
-            <i class="fa-brands fa-researchgate"></i>
-
-            <div class="info">
-              <span class="label">ResearchGate</span>
-              <span class="value">Academic Profile</span>
-            </div>
-
-          </a>
-
-          <a
-          href="https://orcid.org/0000-0002-9604-8804"
-          class="social orcid"
-          target="_blank"
-          >
-
-            <i class="fa-brands fa-orcid"></i>
-
-            <div class="info">
-              <span class="label">ORCID</span>
-              <span class="value">0000-0002-9604-8804</span>
-            </div>
-
-          </a>
-
-        </div>
-
-      </section>
-
-      <!-- INTERESTS -->
-
-      <section class="card">
-
-        <h2 class="section-title">
-          Interests
-        </h2>
-
-        <div class="tags">
-
-          <div class="tag">CBT-I</div>
-          <div class="tag">Cancer Psychology</div>
-          <div class="tag">Rumination</div>
-          <div class="tag">Digital Health</div>
-          <div class="tag">Sleep Research</div>
-          <div class="tag">AI in Mental Health</div>
-
-        </div>
-
-      </section>
-
-    </aside>
-
-  </div>
-
-  <!-- FOOTER -->
-
-  <div class="footer">
-    © 2026 Rasool Hamidi — Academic Portfolio
-  </div>
-
-</div>
+  <script src="app.js"></script>
 
 </body>
+
 </html>
