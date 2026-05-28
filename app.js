@@ -123,36 +123,3 @@ fetchPublications();
 
 
 
-const langToggle =
-document.getElementById("lang-toggle");
-
-let currentLang = "en";
-
-langToggle.addEventListener("click", () => {
-
-  currentLang =
-  currentLang === "en" ? "fa" : "en";
-
-  document.body.classList.toggle(
-    "fa-mode"
-  );
-
-  document.documentElement.lang =
-  currentLang;
-
-  const elements =
-  document.querySelectorAll("[data-en]");
-
-  elements.forEach(el => {
-
-    el.innerHTML =
-    el.dataset[currentLang];
-
-  });
-
-  langToggle.innerText =
-  currentLang === "en"
-  ? "فارسی"
-  : "English";
-
-});
